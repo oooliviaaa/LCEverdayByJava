@@ -7,7 +7,7 @@ public class MedianofTwoSortedArrays {
 
         //////////Remember
         if(len % 2 == 0) {  // even num
-        	return findKth(nums1, nums2, 0, 0, len/2) + findKth(nums1, nums2, 0, 0, len/2+1);
+        	return (findKth(nums1, nums2, 0, 0, len/2) + findKth(nums1, nums2, 0, 0, len/2+1)) / 2.0;
         } 
         else {  // odd num
         	return findKth(nums1, nums2, 0, 0, len/2+1);
