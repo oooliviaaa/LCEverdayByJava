@@ -7,7 +7,7 @@ public class AddTwoNumbers {
 	public ListNode newHead = null;
 	
 	public ListNode add(ListNode h1, ListNode h2){
-		//first we will make sure that both the Linked list has same no of nodes
+		//first we will make sure that both the Linked list has same no of nodes --> add nodes to the 
 		// to ensure that we will append 0 in front of shorter list
 		int h1Len = getLength(h1);
 		int h2Len = getLength(h2);
@@ -16,7 +16,7 @@ public class AddTwoNumbers {
 		}
 		else { 			
 			int diff = h2Len - h1Len; 			
-			while(diff > 0){
+			while(diff > 0){  ///////////
 				ListNode n = new ListNode(0);
 				n.next = h1;
 				h1=n;
