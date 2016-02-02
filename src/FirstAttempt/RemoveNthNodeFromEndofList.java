@@ -9,7 +9,7 @@ public class RemoveNthNodeFromEndofList {
         
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        ListNode pre = dummy;
+        ListNode pre = dummy;  //////// Remember!! pre starts with dummy!!! otherwise you can't remove if n == linkedlist length
         
 		for(int i = 0; i < n; i++) {
 			if(head == null) return null;
