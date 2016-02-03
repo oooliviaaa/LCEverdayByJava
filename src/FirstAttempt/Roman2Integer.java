@@ -7,10 +7,10 @@ public class Roman2Integer {
 	public int romanToInt(String s) {
         if(s == null || s.length() == 0) return 0;
         int res = 0;
-        int pre = s.charAt(0);
+        int pre = getIntegerValue(s.charAt(0));
         int tmp = pre;
         
-        for(int i = 1; i < s.length(); i++) {
+        for(int i = 1; i < s.length(); i++) {   ////// start from the 2nd element
         	char c = s.charAt(i);
         	int cur = getIntegerValue(c);
         	
