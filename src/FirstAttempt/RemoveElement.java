@@ -8,10 +8,10 @@ public class RemoveElement {
         int p = 0;
         int q = nums.length-1;
         
-        while(p <= q) {   //////////// must be <= !!!, otherwise removeElement([1], 1) will return 1 instead of 0 !!!
+        while(p <= q) {   //////////// REMEMBER, must be <= !!!, otherwise removeElement([1], 1) will return 1 instead of 0 !!!
         	if(nums[p] == val) {
         		nums[p] = nums[q];
-        		q--;
+        		q--;  ////////// p doesn't move, because the new nums[p] needs to be checked too
         	}
         	else {
         		p++;
