@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class PlusSignMinusSignGame {
 
 	public static void main(String[] args) {
-		String s = "+++--++-";
+		String s = "++++-++-";
 		PlusSignMinusSignGame game = new PlusSignMinusSignGame();
 		boolean res = game.solution(s);
 		System.out.println(res);
 	}
 	
-	public boolean solution(String s) {		
+	public boolean solution(String s) {		// if we can find a must-win strategy
 		if(s == null || s.length() <= 1) return false;
 		if(s.length() == 2) return (s.charAt(0) == '+') && (s.charAt(1) == '+');
 		
@@ -20,7 +20,8 @@ public class PlusSignMinusSignGame {
 			String newStr = changeToMinus(s, i);
 			ArrayList<Integer> enemy = findContaPlusSign(newStr);
 			boolean flag = true;
-			for(int e : enemy) {
+			for(int e : enemy) {   // only if all enemy's strategy are failed, can we return true to our last step 
+								   // (because we are trying to find must-win strategy)
 				String enStr = changeToMinus(newStr, e);
 				boolean eRes = solution(enStr);
 				if(!eRes) {
