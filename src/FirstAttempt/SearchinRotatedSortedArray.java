@@ -12,7 +12,6 @@ public class SearchinRotatedSortedArray {
         
         while(bg+1 < ed) {  ///////// make sure bg never exceed ed, so that make sure ed never less than 0
 										////////////////// and bg never exceed nums.length-1
-        	System.out.println(bg + " ===== " + ed);
         	int mid = (bg + ed) / 2;
         	if(nums[mid] == target) return mid;
         	if(nums[mid] > nums[bg]) {  // mid is in the front of cutting point
@@ -32,7 +31,7 @@ public class SearchinRotatedSortedArray {
         		}
         	}
         }
-        if(nums[bg] == target) return bg;  ////////////in the end, when bg and ed are near by each other, check both
+        if(nums[bg] == target) return bg;  ////////////in the end, when bg and ed are side by side with each other, check both
         if(nums[ed] == target) return ed;
         return -1;
     }
