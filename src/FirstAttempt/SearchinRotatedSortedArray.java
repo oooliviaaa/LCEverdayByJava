@@ -12,6 +12,7 @@ public class SearchinRotatedSortedArray {
         
         while(bg+1 < ed) {  ///////// make sure bg never exceed ed, so that make sure ed never less than 0
 										////////////////// and bg never exceed nums.length-1
+
         	int mid = (bg + ed) / 2;
         	if(nums[mid] == target) return mid;
         	if(nums[mid] > nums[bg]) {  // mid is in the front of cutting point
