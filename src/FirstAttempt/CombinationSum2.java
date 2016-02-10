@@ -2,10 +2,11 @@ package FirstAttempt;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 
-public class CombinationSum {
+public class CombinationSum2 {
 
-	public ArrayList<ArrayList<Integer>> combinationSum(int[] candidates, int target) {
+	public ArrayList<ArrayList<Integer>> combinationSum2(int[] candidates, int target) {
 		ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
 		if(candidates == null || candidates.length == 0) return res;
 		
@@ -13,6 +14,12 @@ public class CombinationSum {
 		Arrays.sort(candidates);
 		
 		helper(candidates, 0, target, tmp, res);
+		
+		//remove duplicate lists
+		HashSet<ArrayList<Integer>> set = new HashSet<ArrayList<Integer>>(res);
+		res.clear();
+		res.addAll(set);
+		
 		return res;
     }
 	
@@ -23,8 +30,8 @@ public class CombinationSum {
 		
 		for(int i = index; i < nums.length; i++) {
 			cur.add(nums[i]);
-			helper(nums, i, target-nums[i], cur, res);  //same num can be choose many times, so the index is still i
+			helper(nums, i+1, target-nums[i], cur, res);  //same num can be used only once, so the index is i+1
 			cur.remove(cur.size()-1);
 		}
-	}
+    }
 }

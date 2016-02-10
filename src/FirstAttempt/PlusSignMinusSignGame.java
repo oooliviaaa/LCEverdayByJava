@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class PlusSignMinusSignGame {
 
 	public static void main(String[] args) {
-		String s = "++++-++-";
+		String s = "+++++-++-";
 		PlusSignMinusSignGame game = new PlusSignMinusSignGame();
 		boolean res = game.solution(s);
 		System.out.println(res);
@@ -20,8 +20,7 @@ public class PlusSignMinusSignGame {
 			String newStr = changeToMinus(s, i);
 			ArrayList<Integer> enemy = findContaPlusSign(newStr);
 			boolean flag = true;
-			for(int e : enemy) {   // only if all enemy's strategy are failed, can we return true to our last step 
-								   // (because we are trying to find must-win strategy)
+			for(int e : enemy) {   
 				String enStr = changeToMinus(newStr, e);
 				boolean eRes = solution(enStr);
 				if(!eRes) {
