@@ -7,7 +7,7 @@ public class ImplementStrStr {
         
         for(int i = 0; i <= haystack.length()-needle.length(); i++) {   ///////////// be careful!!! use <= !!!
         	int j = 0;
-        	for(j = 0; j < needle.length(); j++) {
+        	for(; j < needle.length(); j++) {
         		if(haystack.charAt(i+j) != needle.charAt(j)) break;
         	}
         	if(j == needle.length()) return i;
