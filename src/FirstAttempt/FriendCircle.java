@@ -21,16 +21,12 @@ public class FriendCircle {
 		
 		
 		for(int i = 0; i < num; i++) {
-			
-			System.out.println("checking: " + i);
-			if(record[i]) {
-				System.out.println("skipped");
-				continue;
-			}
+			if(record[i]) continue;
 			queue.add(i);
 			ArrayList<Integer> tmp = new ArrayList<Integer>();
 			while(!queue.isEmpty()) {
 				int my = queue.poll();
+				if(record[my]) continue;// different ppl can have same friend, so same friend may be added to queue multiple times
 				record[my] = true;
 				tmp.add(my);
 				ArrayList<Integer> myFriends = getFriends(friends, my);
@@ -94,7 +90,7 @@ public class FriendCircle {
 				}; //answer: 4
 				
 		FriendCircle fc = new FriendCircle();
-		ArrayList<ArrayList<Integer>> res = fc.solution(friends2);
+		ArrayList<ArrayList<Integer>> res = fc.solution(friends1);
 		for(ArrayList<Integer> circle : res) {
 			System.out.println("a circle: ");
 			for(int friend: circle) System.out.print(friend + " ");
