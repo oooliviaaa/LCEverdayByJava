@@ -16,9 +16,7 @@ public class FriendCircle {
 		boolean[] record = new boolean[num];
 		Arrays.fill(record, false);
 		
-		
-		Queue<Integer> queue = new LinkedList<Integer>();
-		
+		Queue<Integer> queue = new LinkedList<Integer>();	
 		
 		for(int i = 0; i < num; i++) {
 			if(record[i]) continue;
