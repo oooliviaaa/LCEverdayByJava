@@ -30,7 +30,7 @@ public class MultiplyStrings {
         
         if(carry > 0) sb.insert(0, carry);
         
-        //remove front 0's
+        //remove front 0's, eg. "0 * 0 = 00"
         while(sb.charAt(0) == '0' && sb.length()> 1){
             sb.deleteCharAt(0);
         }
