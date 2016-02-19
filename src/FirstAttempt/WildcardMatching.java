@@ -5,6 +5,33 @@ public class WildcardMatching {
 	// https://longwayjade.wordpress.com/2015/04/26/leetcode-recursion-dp-greedy-wildcard-matching/
 	///////////////////1 - Greedy/////////////////
 	public boolean isMatch(String s, String p) {
+        int i = 0;  // s
+        int j = 0;  // p
+        int starIndex = -1;
+        int starS = 0;
+        
+        while(i < s.length()) {
+        	if(j < p.length() && (p.charAt(j) == s.charAt(i) || p.charAt(j) == '?')) {
+        		i++;
+        		j++;
+        	}
+        	else if(j < p.length() && p.charAt(j) == '*') {
+        		starIndex = j;
+        		starS = i;
+        		j++;
+        	}
+        	else if(starIndex != -1) {
+        		j = starIndex + 1;
+        		starS++;
+        		i = starS;
+        	}
+        	else {
+        		return false;
+        	}
+        }
+        
+        while(j < p.length() && p.charAt(j) == '*') j++;
+        return j == p.length();
         
     }
 	
