@@ -2,12 +2,43 @@ package FirstAttempt;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class FriendCircle {
 
+	// native union find - Shuai
+	private static int getCycleNumUnionFind(boolean[][] friends) {
+		int length = friends.length;
+		int[] relation = new int[length];
+
+		for (int n = 0; n < length; n++) {
+			relation[n] = n;
+		}
+
+		//union
+		for (int row = 1; row < length; row ++) {
+			for (int col = 0; col < row; col ++) {
+				if (friends[row][col]) {
+					for (int n = 0; n < relation.length; n++) {
+						if (relation[n] == col) {
+							relation[n] = row;
+						}
+					}
+				}
+			}
+		}
+		//find
+		HashSet<Integer> nums = new HashSet<Integer>();
+		for (int aRelation : relation) {
+			nums.add(aRelation);
+		}
+		return nums.size();
+	}
 	
+	
+	// BFS - Yaolin
 	public ArrayList<ArrayList<Integer>> solution(boolean[][] friends) {
 		ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
 		if(friends == null || friends.length == 0 || 
