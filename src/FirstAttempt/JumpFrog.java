@@ -35,5 +35,6 @@ public class JumpFrog {
 			
 			
 		}
+		return -1;
 	}
 }
