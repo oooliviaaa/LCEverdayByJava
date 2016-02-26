@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class FriendCircle {
@@ -80,6 +81,41 @@ public class FriendCircle {
 	}
 	
 	
+	// DFS - Yin
+	public List<List<Integer>> connectPeople (boolean[][] people) {
+	       List<List<Integer>> result = new ArrayList<List<Integer>>();
+	       if (people == null || people.length == 0) {
+	           return result;
+	       }
+	       boolean[] visited = new boolean[people.length];
+	       
+	       for (int i = 0; i < people.length; i++) {
+	           if (!visited[i]) {
+	        	   List<Integer> list = new ArrayList<Integer>();
+	               helper(people, i, visited, list, result);
+	               result.add(new ArrayList<Integer>(list));
+	           }
+	       }
+	       return result;
+	   }
+	   
+	   private void helper(boolean[][] people, int index,  boolean[] visited, List<Integer> list, List<List<Integer>> result) {
+	 
+	       list.add(index);
+	       visited[index] = true;
+	       boolean flag = false;
+	       for (int i = index + 1; i <people.length; i++) {
+	           if (people[index][i] && people[i][index]&& !visited[i]) {
+	               flag = true;
+	               helper(people, i, visited,list, result);
+	        
+	           }
+	       }
+	       if (!flag) {
+	           return;
+	       }     
+	   }
+	   
 	
 	public static void main(String[] args) {
 		boolean[][] friends1 = {
@@ -119,8 +155,8 @@ public class FriendCircle {
 				}; //answer: 4
 				
 		FriendCircle fc = new FriendCircle();
-		ArrayList<ArrayList<Integer>> res = fc.solution(friends1);
-		for(ArrayList<Integer> circle : res) {
+		List<List<Integer>> res = fc.connectPeople(friends3);
+		for(List<Integer> circle : res) {
 			System.out.println("a circle: ");
 			for(int friend: circle) System.out.print(friend + " ");
 			System.out.println();
