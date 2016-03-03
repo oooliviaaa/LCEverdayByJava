@@ -68,7 +68,7 @@ public class LogParser {
                 connectTime += (timestamp - conn);
             }
         }
-        if(!s.isEmpty()) {  // could be CONNECTED --> SHUTDOWN
+        if(!s.isEmpty()) {  // could be CONNECTED --> SHUTDOWN, without DISCONNECTED
         	long conn = Long.parseLong(s.pop(), 10);
             connectTime += (end - conn);
         }
