@@ -10,7 +10,7 @@ import java.util.Stack;
 
 public class ConnectPercentage {
 
-	public double solution(String txtFile) throws IOException, ParseException {
+	public String solution(String txtFile) throws IOException, ParseException {
 		
 		BufferedReader br = new BufferedReader(new FileReader(txtFile));
 	    String line = br.readLine();
@@ -48,14 +48,17 @@ public class ConnectPercentage {
 	    }
 	    br.close();
 	    System.out.println(runTime + " === " + connectedTime);
-	    if(runTime == 0) return 0;
-	    else return (double) connectedTime/ (double)runTime * 100;
+	    if(runTime == 0) return "0%";
+	    else{
+	    	int resInt = (int) ((double)connectedTime/ (double)runTime * 100);
+	    	return Integer.toString(resInt)+"%";
+	    } 
 	}
 	
 	public static void main(String[] args) {
 		ConnectPercentage cp = new ConnectPercentage();
 		try {
-			double res = cp.solution("log.txt");
+			String res = cp.solution("log.txt");
 			System.out.println(res);
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 public class NodePath {
@@ -59,5 +60,8 @@ public class NodePath {
 			e.printStackTrace();
 		}
 		
+		HashSet<String> hs;
+		List<String> res = new ArrayList<String>();
+		hs = new HashSet<String>().addAll(res);
 	}
 }
