@@ -43,7 +43,7 @@ public class QuickSort {
 			fast++;   ////////////////////////////////// !!!
 		}
 		switchNum(input, slow, start);  //when 1 round of sorting is finished, switch the position of pivot (x) - 'start' and the smaller index - 'slow'.
-		return slow;  // return slow??? --> pivot
+		return slow;  // return slow (the originally 1st element) --> pivot
 	}
 	
 	private void switchNum(int[] input, int fast, int slow){
