@@ -16,7 +16,7 @@ public class InOrderTraversal {
 		while(true) {	
 			// put all left children in stack
 			while(cur != null) {
-				s.add(cur);
+				s.push(cur);
 				cur = cur.left;
 			}
 			

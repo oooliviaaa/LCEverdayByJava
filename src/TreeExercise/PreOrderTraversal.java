@@ -18,14 +18,15 @@ public class PreOrderTraversal {
 		if(root == null) return res;
 		
 		Stack<TreeNode> s = new Stack<TreeNode>();
-		s.add(root);
+		s.push(root);
 		
 		while(!s.isEmpty()) {
 			TreeNode cur = s.pop();
 			res.add(cur);
 			
-			if(cur.left != null) s.add(cur.left);
-			if(cur.right != null) s.add(cur.right);
+			if(cur.right != null) s.push(cur.right);  ///////// !!! right first
+			if(cur.left != null) s.push(cur.left);
+			
 		}
 		return res;
 	}
