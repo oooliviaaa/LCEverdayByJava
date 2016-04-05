@@ -22,7 +22,7 @@ public class ListOfListIterator_FlattenVector2D {
 		int res = matrix.get(row).get(col);
 		rowPre = row; colPre = col;
 		++col;
-		if (col >= matrix.get(row).size() && row < matrix.size() - 1) {
+		if (col >= matrix.get(row).size()) { //  && row < matrix.size() - 1
 			// navigate to the next available index
 			++row;
 			col = 0;
@@ -33,7 +33,7 @@ public class ListOfListIterator_FlattenVector2D {
 	public boolean hasNext() {
 		// find the next available element
 		while (row < matrix.size()
-				&& (matrix.get(row) == null || matrix.get(row).size() == 0)) {
+				&& (matrix.get(row) == null || matrix.get(row).isEmpty())) {  // ignore empty list
 			row++;
 		}
 		return row < matrix.size() && col < matrix.get(row).size();
