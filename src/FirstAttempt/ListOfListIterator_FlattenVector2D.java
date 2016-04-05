@@ -10,12 +10,12 @@ public class ListOfListIterator_FlattenVector2D {
 	int col;
 	int rowPre;
 	int colPre;
-	List<List<Integer>> matrix;
+	List<ArrayList<Integer>> matrix;
 
-	public ListOfListIterator_FlattenVector2D(List<List<Integer>> vec2d) {
+	public ListOfListIterator_FlattenVector2D(List<ArrayList<Integer>> list) {
 		row = col = 0;
 		rowPre = colPre = -1;
-		matrix = vec2d;
+		matrix = list;
 	}
 
 	public int next() {
@@ -31,6 +31,7 @@ public class ListOfListIterator_FlattenVector2D {
 	}
 
 	public boolean hasNext() {
+		// find the next available element
 		while (row < matrix.size()
 				&& (matrix.get(row) == null || matrix.get(row).size() == 0)) {
 			row++;
@@ -40,6 +41,7 @@ public class ListOfListIterator_FlattenVector2D {
 	
 	public void remove() {
 		matrix.get(rowPre).remove(colPre);
+		col = colPre; row = rowPre;  // the next() one replace the removed one's place
 	}
 	
 	public static void main(String[] args) {
@@ -53,8 +55,20 @@ public class ListOfListIterator_FlattenVector2D {
 		
 		list.add(l1); list.add(l2); list.add(l3);
 		
+		ListOfListIterator_FlattenVector2D s = new ListOfListIterator_FlattenVector2D(list);
+		while(s.hasNext()) {
+			int a = s.next();
+			System.out.println(" " + a);
+			s.remove();
+		}
 		
+		System.out.println("after remove: [");
+		for(ArrayList<Integer> l : list) {
+			for(int j : l) System.out.println(j);
+		}
+		System.out.println("]");
 	}
+	
 }
 
 /**
