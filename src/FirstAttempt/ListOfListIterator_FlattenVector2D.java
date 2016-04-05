@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Shuai's solution
-public class ListOfListIteratorVector2D {
+public class ListOfListIterator_FlattenVector2D {
 
 	int row;
 	int col;
@@ -12,10 +12,10 @@ public class ListOfListIteratorVector2D {
 	int colPre;
 	List<List<Integer>> matrix;
 
-	public ListOfListIteratorVector2D(List<List<Integer>> list) {
+	public ListOfListIterator_FlattenVector2D(List<List<Integer>> vec2d) {
 		row = col = 0;
 		rowPre = colPre = -1;
-		matrix = list;
+		matrix = vec2d;
 	}
 
 	public int next() {
