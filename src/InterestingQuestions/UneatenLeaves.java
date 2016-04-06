@@ -1,4 +1,4 @@
-package FirstAttempt;
+package InterestingQuestions;
 
 import java.util.ArrayList;
 import java.util.Scanner;
