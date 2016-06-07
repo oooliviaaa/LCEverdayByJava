@@ -1,7 +1,6 @@
 package InterestingQuestions;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class WhatCanBuy {
@@ -20,8 +19,13 @@ public class WhatCanBuy {
 		}
 	}
 	
+	
+	// Method 1: DFS
 	public List<ArrayList<Integer>> findPlans(int[] prices, int money) {
 		List<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
+		if (prices == null || prices.length < 1 || money <= 0) {
+            return res;
+        }
 		
 		helper(prices, money, new ArrayList<Integer>(), res);
 		
@@ -46,4 +50,9 @@ public class WhatCanBuy {
 			}
 		}
 	}
+	
+	// Method 2: Grab or go - Shuai
+	// https://github.com/LuShuai/JavaEveryday/blob/master/src/someTest/PurchasePlans.java
+	
+	
 }
