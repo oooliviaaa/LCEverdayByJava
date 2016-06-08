@@ -15,12 +15,12 @@ public class MoveZeroOne {
 		if (nums == null || nums.length < 2) {
 			return;
 		}
-		int i = -1;
+		int i = -1;             ///////////////////////// !!!!!
 		int j = 0;
 		
 		while (j < nums.length) {
 			if(nums[j] == 0) {
-				i++;
+				i++;            ///////////////////////// !!!!!
 				swap(nums, i, j);
 			} 
 			j++;

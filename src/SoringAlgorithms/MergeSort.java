@@ -1,5 +1,7 @@
 package SoringAlgorithms;
 
+import java.util.Arrays;
+
 public class MergeSort {
 	
 	public static void main(String[] args){
@@ -11,7 +13,6 @@ public class MergeSort {
 	}
 
 	private static void mergesort(int[] input) {
-		// TODO Auto-generated method stub
 		int len = input.length;
 		int[] tmp = new int[len];
 		sort(input, tmp, 0, len - 1);
@@ -19,7 +20,6 @@ public class MergeSort {
 	}
 
 	private static void sort(int[] input, int[] tmp, int bg, int ed) {
-		// TODO Auto-generated method stub
 		
 		// Step 1. split till 2 element as a pair
 		if(bg >= ed) return;  // when to stop
@@ -30,7 +30,7 @@ public class MergeSort {
 		sort(input, tmp, mid + 1, ed);
 		
 		// Step 2. merge
-		// read in the whole part array, from bg to ed, deepcopy
+		// read in the whole part array, from bg to ed, deepcopy  // tmp = Arrays.copyOf(input, input.length);
 		for(int i = bg; i <= ed; i++){
 			tmp[i] = input[i];
 		}
