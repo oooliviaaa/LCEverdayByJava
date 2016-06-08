@@ -33,7 +33,7 @@ public class WhatCanBuy {
 	}
 	
 	private void helper(int[] prices, int money, ArrayList<Integer> tmp, List<ArrayList<Integer>> res) {
-		if(money == 0) {
+		if (money == 0) {
 			ArrayList<Integer> newTmp = new ArrayList<Integer>(tmp);
 			res.add(newTmp);
 			return;
@@ -41,9 +41,9 @@ public class WhatCanBuy {
 			return;
 		}
 		
-		for(int i = 0; i < prices.length; i++) {
+		for (int i = 0; i < prices.length; i++) {
 			int p = prices[i];
-			if(p <= money) {
+			if (p <= money) {
 				tmp.add(i);
 				helper(prices, money-p, tmp, res); 
 				tmp.remove(tmp.size()-1);
