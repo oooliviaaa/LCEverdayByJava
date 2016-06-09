@@ -18,7 +18,7 @@ public class PostOrderTraversal {
 			TreeNode cur = s1.pop();
 			s2.add(cur);
 			
-			if(cur.left != null) s2.push(cur.left);
+			if(cur.left != null) s1.push(cur.left);
 			if(cur.right != null) s1.push(cur.right);
 		}
 		
