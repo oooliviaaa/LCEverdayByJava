@@ -13,7 +13,7 @@ public class SortArrayList {
 		input.add(6);
 		input.add(8);
 		input.add(1);
-		Collections.sort(input);  // build in sort for integer
+		Collections.sort(input);  // build-in sort for integer
 		
 		for(int i : input) {
 			System.out.println(i);
