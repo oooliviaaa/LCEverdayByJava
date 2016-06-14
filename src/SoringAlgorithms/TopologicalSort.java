@@ -33,9 +33,9 @@ public class TopologicalSort {
 	}
 	
 	public void sort() {
-		Stack<Integer> s = new Stack<Integer>();
+		Stack<Integer> s = new Stack<Integer>();       //////////////// !!!
 		
-		Boolean[] visited = new Boolean[nodeNum];
+		Boolean[] visited = new Boolean[nodeNum];      //////////////// !!!
 		Arrays.fill(visited, false);
 		
 		for (int i = 0; i < nodeNum; i++) {
@@ -62,7 +62,7 @@ public class TopologicalSort {
 			}
 		}
 		// Push current vertex to stack which stores result
-		s.push(i);
+		s.push(i);        ////////////////////////// !!!
 	}
 	
 	

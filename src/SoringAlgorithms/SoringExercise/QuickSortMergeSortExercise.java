@@ -1,4 +1,4 @@
-package SoringAlgorithms;
+package SoringAlgorithms.SoringExercise;
 
 import java.util.Arrays;
 
