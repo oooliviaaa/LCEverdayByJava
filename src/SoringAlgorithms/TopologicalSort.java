@@ -5,6 +5,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Stack;
 
+
+/**
+ * A topological ordering is possible if and only if the graph has no directed cycles, 
+ * that is, if it is a directed acyclic graph (DAG). 
+ * Any DAG has at least one topological ordering, 
+ * and algorithms are known for constructing a topological ordering of any DAG in linear time.*/
 public class TopologicalSort {
 
 	private int nodeNum;
@@ -12,10 +18,13 @@ public class TopologicalSort {
 	
 	public TopologicalSort(int num) {
 		nodeNum = num;
-		adj = new LinkedList[num];
-		for (LinkedList<Integer> list : adj) {
-			list = new LinkedList<Integer>();
+		adj = new LinkedList[num];   // an array of LinkedLists
+		for (int i = 0; i < num; i++) {
+			adj[i] = new LinkedList<Integer>();
 		}
+		System.out.println(adj[0]);
+		System.out.println(adj[1]);
+		System.out.println(adj[2]);
 	}
 	
 	// edge: v --- n
@@ -54,5 +63,17 @@ public class TopologicalSort {
 		}
 		// Push current vertex to stack which stores result
 		s.push(i);
+	}
+	
+	
+	public static void main(String[] args) {
+		TopologicalSort ts = new TopologicalSort(5);
+		ts.addEdge(0, 1);
+		ts.addEdge(1, 3);
+		ts.addEdge(1, 4);
+		ts.addEdge(0, 2);
+		
+		ts.sort();
+		
 	}
 }
