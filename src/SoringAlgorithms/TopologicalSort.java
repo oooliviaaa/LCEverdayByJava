@@ -13,8 +13,8 @@ public class TopologicalSort {
 	public TopologicalSort(int num) {
 		nodeNum = num;
 		adj = new LinkedList[num];
-		for (LinkedList<Integer> ll : adj) {
-			ll = new LinkedList<Integer>();
+		for (LinkedList<Integer> list : adj) {
+			list = new LinkedList<Integer>();
 		}
 	}
 	
