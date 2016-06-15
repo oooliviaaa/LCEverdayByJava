@@ -103,10 +103,18 @@ public class AlienDictionary {
 	}
 	
 	public static void main(String[] args) {
-		String[] words = new String[]{"wnlb"};
-		
 		AlienDictionary ad = new AlienDictionary();
+		
+		String[] words = new String[]{"wnlb"};
 		String res = ad.alienOrder(words);
+		System.out.println(res);
+		
+		words = new String[]{"a", "b", "ca", "cb"};
+		res = ad.alienOrder(words);
+		System.out.println(res);
+		
+		words = new String[]{"a", "b", "c"};
+		res = ad.alienOrder(words);
 		System.out.println(res);
 	} 
 }
