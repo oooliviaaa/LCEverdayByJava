@@ -13,7 +13,11 @@ public class AlienDictionary {
 
 // http://blog.csdn.net/pointbreak1/article/details/48761705
 	public String alienOrder(String[] words) {
-		if (words == null || words.length <= 1) return "";
+		if (words == null || words.length <= 0) return "";
+		if (words.length == 1) {
+			StringBuffer sb = new StringBuffer(words[0]);
+			return sb.reverse().toString();
+		}
 		
 		Map<Character, List<Character>> dic = new HashMap<Character, List<Character>>();
 		Map<Character, Boolean> used = new HashMap<Character, Boolean>();
@@ -27,9 +31,7 @@ public class AlienDictionary {
 				}
 			}
 		}
-		
-//		for (char k : used.keySet()) System.out.println("used key: " + k + ", value: " + used.get(k));
-		
+				
 		for (int i = 1; i < words.length; i++) {      //////////////////////    !!!!!
 			String pre = words[i-1];
 			String cur = words[i];
@@ -53,12 +55,6 @@ public class AlienDictionary {
 			}
 		}
 		
-//		for (char k : dic.keySet()) {
-//			System.out.println("used key: " + k + ", value: ");
-//			List<Character> list =  dic.get(k);
-//			for (char l : list) System.out.println(l + " ");
-//		}
-		
 		// topological sort on dic
 		StringBuffer res = new StringBuffer();
 		Iterator<Character> it = dic.keySet().iterator(); //////////////////////  Iterator<>  !!!!!
@@ -67,7 +63,6 @@ public class AlienDictionary {
 			if (!used.get(cur)) {
 				Set<Character> loop = new HashSet<Character>();  ///////////// topological sort only works for DAG
 				if (topologicalSort(cur, dic, used, loop, res)) {  ////so need to watch out loop for each start!!!!!
-					System.out.println("loop 1: " + cur);
 					return "";
 				}
 			}
@@ -96,26 +91,25 @@ public class AlienDictionary {
 				loop.add(cur);		  // see if this round has a loop
 				char adj = it.next();
 				if (loop.contains(adj)) {
-					System.out.println(">>>" + adj);
 					for (char l : loop) System.out.println(l);
 					return true; // dic has a loop --> input is wrong, so return ""
 				}
 				if (!used.get(adj)) {
 					if (topologicalSort(adj, dic, used, loop, res)) {
-						System.out.println("loop 2: " + adj);
+						System.out.println(">>>" + adj);
 						return true;
 					}
 				}
 				loop.remove(cur);
 			}
 		}
-		System.out.println("add: " + cur);
+		System.out.println("add " + cur);
 		res.insert(0, cur);  // insert to the front, similar to stack          !!!!!
 		return false;
 	}
 	
 	public static void main(String[] args) {
-		String[] words = new String[]{"a","b","a"};
+		String[] words = new String[]{"wnlb"};
 		
 		AlienDictionary ad = new AlienDictionary();
 		String res = ad.alienOrder(words);
