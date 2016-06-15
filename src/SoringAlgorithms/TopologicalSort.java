@@ -67,12 +67,13 @@ public class TopologicalSort {
 	
 	
 	public static void main(String[] args) {
-		TopologicalSort ts = new TopologicalSort(5);
-		ts.addEdge(0, 1);
+		TopologicalSort ts = new TopologicalSort(7);
+		
+		ts.addEdge(6, 1);
 		ts.addEdge(1, 3);
 		ts.addEdge(1, 4);
-		ts.addEdge(0, 2);
-		
+		ts.addEdge(6, 2);
+		ts.addEdge(5, 6);
 		ts.sort();
 		
 	}
