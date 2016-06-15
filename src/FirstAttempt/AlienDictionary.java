@@ -68,7 +68,6 @@ public class AlienDictionary {
 			}
 		}
 		
-		
 		// take care of the nodes which are in used, but not in dic
 		it = used.keySet().iterator();
 		while (it.hasNext()) {
@@ -76,7 +75,6 @@ public class AlienDictionary {
             if(!used.get(cur))    // this char is never used
                 res.insert(0, cur);                    //////////////////////    !!!!!
 		}
-		
 		return res.toString();
 	}
 	
@@ -84,26 +82,22 @@ public class AlienDictionary {
 									Map<Character, Boolean> used, Set<Character> loop, StringBuffer res) {
 		used.put(cur, true);  // see if a char is used at least once
 		
-		
 		if (dic.containsKey(cur)) {
 			Iterator<Character> it = dic.get(cur).iterator();
 			while (it.hasNext()) {
-				loop.add(cur);		  // see if this round has a loop
+				loop.add(cur);		  // see if this round has a loop   !!!!!
 				char adj = it.next();
 				if (loop.contains(adj)) {
-					for (char l : loop) System.out.println(l);
 					return true; // dic has a loop --> input is wrong, so return ""
 				}
-				if (!used.get(adj)) {
+				if (!used.get(adj)) {  // prevent dup recursion
 					if (topologicalSort(adj, dic, used, loop, res)) {
-						System.out.println(">>>" + adj);
 						return true;
 					}
 				}
-				loop.remove(cur);
+				loop.remove(cur);       //////////////////////    !!!!!
 			}
 		}
-		System.out.println("add " + cur);
 		res.insert(0, cur);  // insert to the front, similar to stack          !!!!!
 		return false;
 	}
