@@ -85,17 +85,17 @@ public class AlienDictionary {
 		if (dic.containsKey(cur)) {
 			Iterator<Character> it = dic.get(cur).iterator();
 			while (it.hasNext()) {
-				loop.add(cur);		  // see if this round has a loop   !!!!!
 				char adj = it.next();
 				if (loop.contains(adj)) {
 					return true; // dic has a loop --> input is wrong, so return ""
 				}
 				if (!used.get(adj)) {  // prevent dup recursion
+					loop.add(cur);		  // see if this round has a loop   !!!!!
 					if (topologicalSort(adj, dic, used, loop, res)) {
 						return true;
 					}
+					loop.remove(cur);       //////////////////////    back tracking!!!!!
 				}
-				loop.remove(cur);       //////////////////////    !!!!!
 			}
 		}
 		res.insert(0, cur);  // insert to the front, similar to stack          !!!!!
