@@ -28,49 +28,58 @@ public class AlienDictionary {
 			}
 		}
 		
-		for (int i = 1; i < words.length; i++) {
+//		for (char k : used.keySet()) System.out.println("used key: " + k + ", value: " + used.get(k));
+		
+		for (int i = 1; i < words.length; i++) {      //////////////////////    !!!!!
 			String pre = words[i-1];
 			String cur = words[i];
 			int j = 0;
 			while (j < pre.length() && j < cur.length()) {
 				char p = pre.charAt(j);
 				char c = cur.charAt(j);
-				if (p != c) {
+				if (p != c) {      //////////////////////    !!!!!
 					if (!dic.containsKey(p)) {
 						List<Character> l = new ArrayList<Character>();
 						l.add(c);
 						dic.put(p, l);
 					}
 					else {
-						dic.get(p).add(c);
+						List<Character> l = dic.get(p);
+						if (!l.contains(c)) l.add(c);
 					}
-					break;
+					break;                        //////////////////////    !!!!!
 				}
-				j++;
+				j++;                             //////////////////////    !!!!!
 			}
 		}
 		
+//		for (char k : dic.keySet()) {
+//			System.out.println("used key: " + k + ", value: ");
+//			List<Character> list =  dic.get(k);
+//			for (char l : list) System.out.println(l + " ");
+//		}
+		
 		// topological sort on dic
 		StringBuffer res = new StringBuffer();
-		Iterator<Character> it = dic.keySet().iterator();
-		
+		Iterator<Character> it = dic.keySet().iterator(); //////////////////////  Iterator<>  !!!!!
 		while (it.hasNext()) {
 			char cur = it.next();
 			if (!used.get(cur)) {
-				Set<Character> loop = new HashSet<Character>();
-				if (topologicalSort(cur, dic, used, loop, res)) {
+				Set<Character> loop = new HashSet<Character>();  ///////////// topological sort only works for DAG
+				if (topologicalSort(cur, dic, used, loop, res)) {  ////so need to watch out loop for each start!!!!!
+					System.out.println("loop 1: " + cur);
 					return "";
 				}
 			}
 		}
 		
 		
-		// take care of the node without any edge
+		// take care of the nodes which are in used, but not in dic
 		it = used.keySet().iterator();
 		while (it.hasNext()) {
-			char cur = (char)it.next();  
-            if(!used.get(cur))  
-                res.insert(0, cur); 
+			char cur = it.next();  
+            if(!used.get(cur))    // this char is never used
+                res.insert(0, cur);                    //////////////////////    !!!!!
 		}
 		
 		return res.toString();
@@ -78,21 +87,38 @@ public class AlienDictionary {
 	
 	private boolean topologicalSort(char cur, Map<Character, List<Character>> dic, 
 									Map<Character, Boolean> used, Set<Character> loop, StringBuffer res) {
-		used.put(cur, true);
-		loop.add(cur);
+		used.put(cur, true);  // see if a char is used at least once
+		
 		
 		if (dic.containsKey(cur)) {
 			Iterator<Character> it = dic.get(cur).iterator();
 			while (it.hasNext()) {
+				loop.add(cur);		  // see if this round has a loop
 				char adj = it.next();
-				if (loop.contains(adj)) return true; // dic has a loop --> input is wrong, so return ""
-				if (topologicalSort(adj, dic, used, loop, res)) {
-					return true;
+				if (loop.contains(adj)) {
+					System.out.println(">>>" + adj);
+					for (char l : loop) System.out.println(l);
+					return true; // dic has a loop --> input is wrong, so return ""
 				}
+				if (!used.get(adj)) {
+					if (topologicalSort(adj, dic, used, loop, res)) {
+						System.out.println("loop 2: " + adj);
+						return true;
+					}
+				}
+				loop.remove(cur);
 			}
 		}
-		res.insert(0, cur);  // insert to the front, similar to stack
+		System.out.println("add: " + cur);
+		res.insert(0, cur);  // insert to the front, similar to stack          !!!!!
 		return false;
 	}
 	
+	public static void main(String[] args) {
+		String[] words = new String[]{"a","b","a"};
+		
+		AlienDictionary ad = new AlienDictionary();
+		String res = ad.alienOrder(words);
+		System.out.println(res);
+	} 
 }
