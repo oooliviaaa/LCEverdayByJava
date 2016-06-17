@@ -81,7 +81,8 @@ public class AlienDictionary {
 	private boolean topologicalSort(char cur, Map<Character, List<Character>> dic, 
 									Map<Character, Boolean> used, Set<Character> loop, StringBuffer res) {
 		used.put(cur, true);  // see if a char is used at least once
-		
+		loop.add(cur);		  // see if this round has a loop   !!!!!
+
 		if (dic.containsKey(cur)) {
 			Iterator<Character> it = dic.get(cur).iterator();
 			while (it.hasNext()) {
@@ -90,14 +91,13 @@ public class AlienDictionary {
 					return true; // dic has a loop --> input is wrong, so return ""
 				}
 				if (!used.get(adj)) {  // prevent dup recursion
-					loop.add(cur);		  // see if this round has a loop   !!!!!
 					if (topologicalSort(adj, dic, used, loop, res)) {
 						return true;
 					}
-					loop.remove(cur);       //////////////////////    back tracking!!!!!
 				}
 			}
 		}
+		loop.remove(cur);       //////////////////////    back tracking !!!!!!!!!!
 		res.insert(0, cur);  // insert to the front, similar to stack          !!!!!
 		return false;
 	}
