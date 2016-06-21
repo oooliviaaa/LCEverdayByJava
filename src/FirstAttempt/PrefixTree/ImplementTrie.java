@@ -23,6 +23,7 @@ public class ImplementTrie {
         		node = child.get(w);
         	} else {
         		node = new TrieNode(w);
+        		child.put(w, node);
         	}
         	child = node.children;
         	
