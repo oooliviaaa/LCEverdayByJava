@@ -30,7 +30,7 @@ public class GraphTraversal {
 		n5.addNeighbor(n6);
 		n6.addNeighbor(n7);
 		
-		List<GraphNode> res1 = gt.DFSTraversal(n1);
+		List<GraphNode> res1 = gt.BFSTraversal(n1);
 		for (GraphNode n : res1) {
 			System.out.println(n.val);
 		}
@@ -55,7 +55,7 @@ public class GraphTraversal {
 		v1.addNeighbor(v2); v1.addNeighbor(v3);
 		
 		
-		List<GraphNode> res3 = gt.DFSTraversal(v1);
+		List<GraphNode> res3 = gt.BFSTraversal(v1);
 		for (GraphNode n : res3) {
 			System.out.println(n.val);
 		}
@@ -97,7 +97,7 @@ public class GraphTraversal {
 		while (!q.isEmpty()) {
 			GraphNode cur = q.poll();
 			if (res.contains(cur)) {
-				break;
+				continue;
 			}
 			res.add(cur);
 			List<GraphNode> neighbors = cur.neighbors;
