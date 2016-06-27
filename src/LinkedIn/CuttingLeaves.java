@@ -8,6 +8,7 @@ import java.util.Map;
 public class CuttingLeaves {
 
 	public static void main(String[] args) {
+		TreeNode n0 = new TreeNode(0);
 		TreeNode n1 = new TreeNode(1);
 		TreeNode n2 = new TreeNode(2);
 		TreeNode n3 = new TreeNode(3);
@@ -17,15 +18,17 @@ public class CuttingLeaves {
 		TreeNode n7 = new TreeNode(7);
 		TreeNode n8 = new TreeNode(8);
 		TreeNode n9 = new TreeNode(9);
+		TreeNode n10 = new TreeNode(10);
+		TreeNode n11 = new TreeNode(11);
 		
-		n9.addChild(n5); n9.addChild(n8);
+		n0.addChild(n5); n0.addChild(n8); n0.addChild(n11);
 		n5.addChild(n1); n5.addChild(n2);
-		n8.addChild(n7);
+		n8.addChild(n7); n8.addChild(n9); n8.addChild(n10);
 		n7.addChild(n6); n7.addChild(n4);
 		n6.addChild(n3);
 		
 		CuttingLeaves cl = new CuttingLeaves();
-		Map<Integer, List<TreeNode>> res = cl.solution(n9);
+		Map<Integer, List<TreeNode>> res = cl.solution(n0);
 		for (int i : res.keySet()) {
 			System.out.println("level " + i + " :");
 			List<TreeNode> nodes = res.get(i);
