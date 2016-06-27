@@ -40,7 +40,6 @@ public class GraphTraversal {
 		GraphNode m1 = new GraphNode(1);
 		GraphNode m2 = new GraphNode(2);
 		m1.addNeighbor(m2); 
-		m2.addNeighbor(m1);
 		List<GraphNode> res2 = gt.BFSTraversal(m1);
 		for (GraphNode n : res2) {
 			System.out.println(n.val);
@@ -54,8 +53,7 @@ public class GraphTraversal {
 		GraphNode v4 = new GraphNode(4);
 		
 		v1.addNeighbor(v2); v1.addNeighbor(v3);
-		v2.addNeighbor(v1); v2.addNeighbor(v3);
-		v3.addNeighbor(v1); v3.addNeighbor(v2);
+		
 		
 		List<GraphNode> res3 = gt.DFSTraversal(v1);
 		for (GraphNode n : res3) {

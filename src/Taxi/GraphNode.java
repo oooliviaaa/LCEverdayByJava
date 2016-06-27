@@ -15,5 +15,6 @@ public class GraphNode {
 	
 	public void addNeighbor(GraphNode node) {
 		this.neighbors.add(node);
+		node.neighbors.add(this);
 	}
 }
