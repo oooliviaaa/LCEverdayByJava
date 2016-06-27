@@ -2,7 +2,9 @@ package Taxi;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Set;
 
 public class GraphTraversal {
@@ -34,7 +36,7 @@ public class GraphTraversal {
 		GraphNode m2 = new GraphNode(2);
 		m1.addNeighbor(m2); 
 		m2.addNeighbor(m1);
-		List<GraphNode> res2 = gt.DFSTraversal(m1);
+		List<GraphNode> res2 = gt.BFSTraversal(m1);
 		for (GraphNode n : res2) {
 			System.out.println(n.val);
 		}
@@ -46,21 +48,19 @@ public class GraphTraversal {
 			return res;
 		}
 		
-		Set<GraphNode> visited = new HashSet<GraphNode>();
-		DFSHelper(node, visited, res);
+		DFSHelper(node, res);
 		return res;
 	}
 	
-	private void DFSHelper(GraphNode node, Set<GraphNode> visited, List<GraphNode> res) {
-		if (visited.contains(node)) {
+	private void DFSHelper(GraphNode node, List<GraphNode> res) {
+		if (res.contains(node)) {
 			return;
 		}
-		visited.add(node);
 		res.add(node);
 		List<GraphNode> neighbors = node.neighbors;
 		if (neighbors != null || !neighbors.isEmpty()) {
 			for (GraphNode n : neighbors) {
-				DFSHelper(n, visited, res);
+				DFSHelper(n, res);
 			}
 		}
 		
@@ -68,6 +68,21 @@ public class GraphTraversal {
 	
 	public List<GraphNode> BFSTraversal(GraphNode node) {
 		List<GraphNode> res = new ArrayList<GraphNode>();  
+		
+		Queue<GraphNode> q = new LinkedList<GraphNode>();
+		q.add(node);
+		
+		while (!q.isEmpty()) {
+			GraphNode cur = q.poll();
+			if (res.contains(cur)) {
+				break;
+			}
+			res.add(cur);
+			List<GraphNode> neighbors = cur.neighbors;
+			for (GraphNode n : neighbors) {
+				q.add(n);
+			}
+		}
 		
 		return res;
 	}
