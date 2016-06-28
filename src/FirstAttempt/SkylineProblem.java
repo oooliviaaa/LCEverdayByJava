@@ -26,17 +26,17 @@ public class SkylineProblem {
         
         List<int[]> points = new ArrayList<int[]>();
         for (int[] b : buildings) {
-        	points.add(new int[]{b[0], -b[2]});
+        	points.add(new int[]{b[0], -b[2]});  // only can left height marked as neg, you can't mark right height as neg!!! because of line 39
         	points.add(new int[]{b[1], b[2]});
         }
         
-        // sort the list primarily according to x, secondary according to y
+        // sort the list primarily according to x, secondary according to y (min->max)
         Collections.sort(points, new Comparator<int[]>() {
 			public int compare(int[] o1, int[] o2) {
 				if (o1[0] != o2[0]) {
 					return o1[0] - o2[0];
 				} else {
-					return o1[1] - o2[1];
+					return o1[1] - o2[1];  // left height will be negative, careful !!!!!
 				}
 			}
         });
