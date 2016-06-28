@@ -20,6 +20,9 @@ public class MinHeightTrees {
 			return leaf;
 		}
 		
+		// record how many neighbors does a node have. Must have !!!!!
+		int[] neighbors = new int[n];  
+		
 		// build a graph
 		Map<Integer, List<Integer>> graph = new HashMap<Integer, List<Integer>>();
 		for (int i = 0; i < n; i++) {
@@ -27,6 +30,8 @@ public class MinHeightTrees {
 		}
 		for (int[] edge : edges) {
 			int n1 = edge[0]; int n2 = edge[1];
+			neighbors[n1]++;
+			neighbors[n2]++;
 			graph.get(n1).add(n2);
 			graph.get(n2).add(n1);
 		}
@@ -43,10 +48,8 @@ public class MinHeightTrees {
 			List<Integer> newLeaf = new ArrayList<Integer>();  
 			for (int l : leaf) {
 				n--;
-				List<Integer> nNei = graph.get(l);
-				for (int ne : nNei) {
-					graph.get(ne).remove(l);
-					if (graph.get(ne).size() == 1) {
+				for (int ne : graph.get(l)) {
+					if (--neighbors[ne] == 1) {   // you can't really do delete inside graph!!!!!
 						newLeaf.add(ne);
 					}
 				}
