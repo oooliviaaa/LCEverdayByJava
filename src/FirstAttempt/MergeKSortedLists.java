@@ -15,6 +15,7 @@ public class MergeKSortedLists {
         if(num == 1) return lists[0];
         
         ////////////REMEBER!!! new PriorityQueue<Object>(size, comparator);
+        // compare(l1, l2), l1 and l2 are what's inside the priority queue --> ListNode
         PriorityQueue<ListNode> pq = new PriorityQueue<ListNode>(lists.length, new Comparator<ListNode>() {
 																		public int compare(ListNode o1, ListNode o2) {
 																			return o1.val - o2.val;
