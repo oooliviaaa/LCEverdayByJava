@@ -49,7 +49,7 @@ public class AlienDictionary {
 						List<Character> l = dic.get(p);
 						if (!l.contains(c)) l.add(c);
 					}
-					break;                        //////////////////////    !!!!!
+					break;                        //////////////////////  need to break out after processing the 1st different char  !!!!!
 				}
 				j++;                             //////////////////////    !!!!!
 			}
