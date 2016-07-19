@@ -1,4 +1,4 @@
-package FirstAttempt;
+package random;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +13,7 @@ public class LetterCombinationsofPhoneNumber {
 		dict = new HashMap<Character, char[]>();
 		dict.put('2', new char[]{'a', 'b', 'c'});
 		dict.put('3', new char[]{'d', 'e', 'f'});
-		
+		dict.put('4', new char[]{'g', 'h'});
 		
 	}
 	
