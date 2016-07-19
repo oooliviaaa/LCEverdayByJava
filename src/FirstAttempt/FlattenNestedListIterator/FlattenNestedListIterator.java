@@ -27,8 +27,8 @@ public class FlattenNestedListIterator implements Iterator<Integer> {
         		return true;
         	} else {
         		cur = st.pop();
-        		for (int i = cur.getList().size()-1; i >= 0; i--) {
-        			st.push(cur.getList().get(i));    //////////////  reverse push in   !!!!!
+        		for (int i = cur.getList().size()-1; i >= 0; i--) {    //////////////  reverse push in   !!!!!
+        			st.push(cur.getList().get(i));
         		}
         	}
         }
