@@ -5,6 +5,7 @@ import java.util.List;
 
 public class InsertIntervals {
 
+	// http://www.cnblogs.com/springfor/p/3872333.html
 	public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
 		List<Interval> res = new ArrayList<Interval>();
 		
