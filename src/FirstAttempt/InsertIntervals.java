@@ -12,7 +12,7 @@ public class InsertIntervals {
 		for (Interval cur : intervals) {
 			if (cur.end < newInterval.start) {
 				res.add(cur);
-			} else if (cur .start > newInterval.end) {
+			} else if (cur.start > newInterval.end) {
 				res.add(newInterval);
 				newInterval = cur;  ///// avoid adding multiple times !!!!!
 			} else {  // has collision!
