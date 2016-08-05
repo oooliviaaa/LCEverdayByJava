@@ -36,7 +36,7 @@ public class SpiralMatrixII {
         }
         
         if (n % 2 == 1) {
-        	res[top][left] = k;
+        	res[n/2][n/2] = num;
         }
         return res;
     }
