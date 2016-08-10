@@ -19,6 +19,7 @@ public class KthLargestElementinArray {
 		return pq.peek();
 	}
 	
+	/////////////////////////////////////////////
 	// solution 2: quick sort
 	// Average case time is O(n), worst case time is O(n^2).
 	public int findKthLargest2(int[] nums, int k) {
