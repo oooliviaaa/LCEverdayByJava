@@ -31,7 +31,7 @@ public class TreePrinter {
 	
 	private static boolean isAllStar(List<TreeNode> l) {
 		for (TreeNode n : l) {
-			if (n.val != '*') return false;
+			if (n.val != -100) return false;
 		}
 		return true;
 	}

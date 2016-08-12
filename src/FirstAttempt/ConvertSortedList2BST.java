@@ -54,7 +54,6 @@ public class ConvertSortedList2BST {
 		
 		ConvertSortedList2BST cs = new ConvertSortedList2BST();
 		TreeNode head = cs.sortedListToBST(l0);
-		System.out.println(head.val);
 		TreePrinter.printBinaryTree(head);
 	}
 }
