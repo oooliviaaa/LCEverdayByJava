@@ -12,7 +12,7 @@ public class FlattenBinaryTreeLinkedList {
 	 * 整个程序需要维护一个全局变量，保存当前所遍历的节点。
 	 * */
 	
-	TreeNode lastVisited = null;
+	TreeNode lastVisited = null;   ////////// !!!!!
 	public void flatten(TreeNode root) {
         if (root == null) {
         	return;
