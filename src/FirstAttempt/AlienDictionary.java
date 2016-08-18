@@ -22,7 +22,7 @@ public class AlienDictionary {
 		Map<Character, List<Character>> dic = new HashMap<Character, List<Character>>();
 		Map<Character, Boolean> used = new HashMap<Character, Boolean>();
 		
-		// preprocess
+		// preprocess 1: used Map
 		for (int i = 0; i < words.length; i++) {
 			String cur = words[i];
 			for (int j = 0; j < cur.length(); j++) {
@@ -32,6 +32,7 @@ public class AlienDictionary {
 			}
 		}
 				
+		// preprocess 2: sequence Map
 		for (int i = 1; i < words.length; i++) {      //////////////////////    !!!!!
 			String pre = words[i-1];
 			String cur = words[i];
