@@ -21,7 +21,7 @@ public class LongestIncreasingPathinMatrix {
     }
 	
 	private int getMaxLength(int[][] matrix, int i, int j, int[][] record) {
-		if (record[i][j] != 0) return record[i][j];   /////////// record不是用来存储是否访问过，而是存储之前计算出的结果。可以直接利用其他dfs path得出的的结果!!!!
+		if (record[i][j] != 0) return record[i][j];   /////////// record不是用来存储是否访问过，而是存储之前计算出的结果。如果之前访问过，可以直接利用其他dfs path得出的的结果!!!!
 		int max = 1;
 		
 		for (int[] dir : directions) {
