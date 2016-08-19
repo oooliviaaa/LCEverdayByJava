@@ -40,10 +40,10 @@ public class BinaryTreeVerticalOrderTraversal {
 			curLevelNum--;
 			ArrayList<Integer> list = levelCollect.get(cur.col);
 			if (list == null) {
-				list = new ArrayList<Integer>();
+				list = new ArrayList<Integer>();  ///////// a good way !!! 
+				levelCollect.put(cur.col, list);
 			}
 			list.add(cur.node.val);
-			levelCollect.put(cur.col, list);
 			
 			// process next level
 			if (cur.node.left != null) {
