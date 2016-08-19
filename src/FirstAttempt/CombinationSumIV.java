@@ -1,6 +1,5 @@
 package FirstAttempt;
 
-import java.util.Arrays;
 
 public class CombinationSumIV {
 
