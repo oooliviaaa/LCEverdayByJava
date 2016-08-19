@@ -25,6 +25,5 @@ public class LowestCommonAncestorofBinaryTree {
 		if (isOnLeft_p != isOnLeft_q) return root;
 		TreeNode nextRoot = isOnLeft_p ? root.left : root.right;
 		return findAncestor(nextRoot, p, q);
-		
 	}
 }

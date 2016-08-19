@@ -60,7 +60,7 @@ public class WordBreakII {
 	
 	
 	
-	// DFS return only one result
+	// DFS return only one result， and check if exists
 	public List<String> wordBreakOneResult(String s, Set<String> wordDict) {
         List<String> res = new ArrayList<String>();
         
