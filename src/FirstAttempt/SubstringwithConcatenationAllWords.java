@@ -49,7 +49,7 @@ public class SubstringwithConcatenationAllWords {
 	
 	public static void main(String[] args) {
 		String s = "ababababab";
-		String[] words = new String[]{"ab", "ab"};
+		String[] words = new String[]{"ab", "ba"};
 		SubstringwithConcatenationAllWords sc = new SubstringwithConcatenationAllWords();
 		ArrayList<Integer> res = sc.findSubstring(s, words);
 		for(Integer i : res) {
