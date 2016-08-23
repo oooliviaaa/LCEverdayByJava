@@ -10,7 +10,8 @@ public class PascalTriangleII {
         List<Integer> pre;
         List<Integer> cur = new ArrayList<Integer>();
         cur.add(1);
-        for (int i = 0; i < rowIndex; i++) { // iterate rowIndex-1 times
+        if (rowIndex == 0) return cur;
+        for (int i = 0; i <= rowIndex; i++) { // iterate rowIndex times
         	pre = new ArrayList<Integer>(cur);
         	cur.clear();
         	cur.add(1);
@@ -24,7 +25,7 @@ public class PascalTriangleII {
 	
 	
 	///////////////////////////
-	// better way: 只用一个list
+	// better way: 只用一个list，从后往前加新的
 	public List<Integer> getRow(int rowIndex) {
 		ArrayList<Integer> result = new ArrayList<Integer>();
 	 
@@ -34,7 +35,7 @@ public class PascalTriangleII {
 		result.add(1);
 		for (int i = 1; i <= rowIndex; i++) {
 			for (int j = result.size() - 2; j >= 0; j--) {
-				result.set(j + 1, result.get(j) + result.get(j + 1));
+				result.set(j + 1, result.get(j) + result.get(j + 1));   // set at position j+1
 			}
 			result.add(1);
 		}
@@ -44,7 +45,7 @@ public class PascalTriangleII {
 	
 	public static void main(String[] args) {
 		PascalTriangleII pt2 = new PascalTriangleII();
-		List<Integer> res = pt2.getRow(3);
+		List<Integer> res = pt2.getPascalRow(1);
 		for (int i : res) {
 			System.out.println("result --> " + i);
 		}
