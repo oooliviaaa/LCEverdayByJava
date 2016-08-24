@@ -16,10 +16,12 @@ public class CloneGraph {
 		}
 	};
 	
+	// http://www.cnblogs.com/springfor/p/3874591.html 
+	// DFS
 	public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
         if (node == null) return null;
         
-        Map<UndirectedGraphNode, UndirectedGraphNode> note = new HashMap<UndirectedGraphNode, UndirectedGraphNode>();
+        Map<UndirectedGraphNode, UndirectedGraphNode> note = new HashMap<UndirectedGraphNode, UndirectedGraphNode>(); //  hashmap!!!!!
         
         UndirectedGraphNode head = new UndirectedGraphNode(node.label);
         
