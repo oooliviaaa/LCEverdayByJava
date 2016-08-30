@@ -21,16 +21,16 @@ public class ConstructBTfromPreorderInorderTraversal {
 	}
 	
 	private TreeNode helper(int[] preorder, int startPre, int endPre, int[] inorder, int startIn, int endIn) {
-		if (startPre < endPre || startIn < endIn) {
+		if (startPre > endPre || startIn > endIn) {
 			return null;
 		}
 		
-		int rootVal = preorder[0];
+		int rootVal = preorder[startPre];
 		TreeNode root = new TreeNode(rootVal);
 		
 		// find the root position in inorder array
 		int k = 0;
-		for (int i = 0; i < inorder.length; i++) {
+		for (int i = startIn; i <= endIn; i++) {
 			int val = inorder[i];
 			if (rootVal == val) {
 				k = i;
@@ -38,10 +38,10 @@ public class ConstructBTfromPreorderInorderTraversal {
 			}
 		}
 		
-		// preorder的index比较不太好想，记得要减去startIn，
+		// preorder的index比较不太好想，记得要减去startIn!!!!! k-startIn才是真正位移的位置
 		// 因为k是inorder array中在startIn之后开始逐个遍历找到的一个位置，直接+k的位置是过长的，k需要减掉之前inorder array中startIn的位移
 		root.left = helper(preorder, startPre+1, startPre+(k-startIn), inorder, startIn, k-1);  /////// startPre+k-startIn !!!!!
-		root.right = helper(preorder, startPre+(k+1-startIn), endPre, inorder, k+1, endIn);    ////// startPre+k+1-startIn !!!!!
+		root.right = helper(preorder, startPre+1+(k-startIn), endPre, inorder, k+1, endIn);    ////// startPre+k+1-startIn !!!!!
 		return root;
     }
 }
