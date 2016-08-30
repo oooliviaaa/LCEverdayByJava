@@ -43,7 +43,7 @@ public class SerializeDeserializeBinaryTree {
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
         queue.offer(root);
         
-        int i = 1;    //////////// start from the 2nd one
+        int i = 1;    //////////// start from the 2nd one !!!!!
         while(!queue.isEmpty()) {
         	TreeNode cur = queue.poll();
         	if (cur == null) {
