@@ -5,9 +5,9 @@ public class PowerOfThree {
 	// http://www.programcreek.com/2014/04/leetcode-power-of-three-java/
 	// Iteration
 	public boolean isPowerOfThree(int n) {
-		if(n == 1) return true; ////// !!!!!
 	    
 		while (n > 0) {
+			if(n == 1) return true; ////// !!!!!
         	int m = n % 3;
         	if (m != 0) {
         		return false;
