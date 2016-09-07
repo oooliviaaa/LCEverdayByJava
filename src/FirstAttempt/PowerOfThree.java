@@ -13,11 +13,8 @@ public class PowerOfThree {
         		return false;
         	}
         	n /= 3;
-        	if (n == 1) {   //////// !!!!!
-        		return true;
-        	}
         }
-        return false;     ////// !!!!! n==0的时候其实是false的情况，相当于最后一次除3除不尽了
+        return false;     ////// !!!!! n==0的时候其实是false的情况，相当于最后一次除3除不尽了。例如2，2/3=0.
     }
 	
 	////////recursion/////////
