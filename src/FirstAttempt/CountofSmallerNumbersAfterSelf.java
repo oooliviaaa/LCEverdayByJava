@@ -2,6 +2,7 @@ package FirstAttempt;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class CountofSmallerNumbersAfterSelf {
@@ -46,5 +47,62 @@ public class CountofSmallerNumbersAfterSelf {
 		if (sorted.get(start) >= target) return start;
 	    return end;
 	}
+	
+	/////////////////
+	// https://discuss.leetcode.com/topic/31422/easiest-java-solution/2
+	// Solution III: Binary search tree
+	/**
+	 * Traverse from nums[len - 1] to nums[0], and build a binary search tree, which stores:
+	 * 1. val: value of nums[i]
+	 * 2. count: if val == root.val, there will be count number of smaller numbers on the right
+	 * */
+	class TreeNode {
+		TreeNode left; 
+		TreeNode right;
+		int val;
+		int count = 1;
+		public TreeNode(int val) {
+			this.val = val;
+		}
+	}
+	
+	public List<Integer> countSmaller_BST(int[] nums) {
+		List<Integer> res = new ArrayList<Integer>();
+		if(nums == null || nums.length == 0) return res;
+		TreeNode root = new TreeNode(nums[nums.length - 1]);
+		res.add(0);
+		for(int i = nums.length - 2; i >= 0; i--) {
+			int count = insertNode(root, nums[i]);
+			res.add(count);
+		}
+		Collections.reverse(res);
+		return res;
+	}
+
+	public int insertNode(TreeNode root, int val) {
+		int thisCount = 0;
+		while(true) {
+			if(val <= root.val) {
+				root.count++;      ///// !!!!!
+				if(root.left == null) {
+					root.left = new TreeNode(val); 
+					break;
+				} else {
+					root = root.left;
+				}
+			} else {
+				thisCount += root.count;   ///// !!!!!
+				if(root.right == null) {
+					root.right = new TreeNode(val); 
+					break;
+				} else {
+					root = root.right;
+				}
+			}
+		}
+		return thisCount;
+	}
+	
+	
 	
 }
