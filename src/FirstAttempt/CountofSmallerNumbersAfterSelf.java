@@ -83,7 +83,7 @@ public class CountofSmallerNumbersAfterSelf {
 		int thisCount = 0;
 		while(true) {
 			if(val <= root.val) {
-				root.count++;      ///// !!!!!
+				root.count++;      ///// 这个数比当前root的val小，向root的左孩子走，所以root.count+1，表示这个root多了一个比他小的左侧的孩子!!!!!
 				if(root.left == null) {
 					root.left = new TreeNode(val); 
 					break;
@@ -91,7 +91,7 @@ public class CountofSmallerNumbersAfterSelf {
 					root = root.left;
 				}
 			} else {
-				thisCount += root.count;   ///// !!!!!
+				thisCount += root.count;   ///// 这个数比当前root的val大，向右孩子走，当前这个数的thisCount+当前root.count，并在最后以这个thisCount做返回值 !!!!!
 				if(root.right == null) {
 					root.right = new TreeNode(val); 
 					break;

@@ -2,6 +2,7 @@ package FirstAttempt;
 
 public class TrappingRainWater {
 
+	// http://www.programcreek.com/2014/06/leetcode-trapping-rain-water-java/
 	public int trap(int[] height) {
         if(height == null || height.length < 3) return 0;
         
