@@ -34,7 +34,7 @@ public class SquareNumSumToN_Shuai {
 	}
 	
 	public static void main(String[] args) {
-		int test = 999;
+		int test = 9;
 		System.out.println(getMin(test));  // 2
 	}
 }

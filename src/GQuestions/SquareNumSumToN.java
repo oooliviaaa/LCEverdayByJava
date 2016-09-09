@@ -9,7 +9,7 @@ public class SquareNumSumToN {
 		if (N <= 2) return N;
 		
 		int[] dp = new int[N+1];
-		dp[0] = 1;
+		dp[0] = 0;
 		dp[1] = 1;
 		
 		for (int n = 2; n <= N; n++) {
@@ -28,7 +28,7 @@ public class SquareNumSumToN {
 	
 	public static void main(String[] args) {
 		SquareNumSumToN sn = new SquareNumSumToN();
-		int res = sn.solution(10);
+		int res = sn.solution(9);
 		System.out.println(res);
 	}
 }
