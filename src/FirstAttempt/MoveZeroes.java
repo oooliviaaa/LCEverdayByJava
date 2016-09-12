@@ -11,7 +11,7 @@ public class MoveZeroes {
         int right = 0;
         
         while (right < nums.length) {
-        	if (nums[right] == 0) {  // right用来寻找下一个废0的数字
+        	if (nums[right] == 0) {  // right用来寻找下一个非0的数字
         		right++;
         	} else {
         		nums[left] = nums[right];
