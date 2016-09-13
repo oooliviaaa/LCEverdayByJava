@@ -9,7 +9,6 @@ public class ConvertSortedArray2BST {
 	}
 	
 	private TreeNode helper(int[] num, int st, int ed) {
-		int len = num.length;
 		if (st < 0 || st >= num.length || ed < 0 || ed >= num.length || st > ed) {
 			return null;   ////////////////// leave's kid  !!!!
 		}
