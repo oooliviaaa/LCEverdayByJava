@@ -18,6 +18,14 @@ public class InterleavingString {
 			dp[0][j] = true;
 		}
 		
+//		for (int j = 1; j <= s2.length(); j++) {  // 当有一处不同时，for loop就结束了!!!!!
+//			if (s2.charAt(j-1) == s3.charAt(j-1)) {
+//				dp[0][j] = true;
+//			} else {
+//				break;
+//			}
+//		}
+		
 		for (int i = 1; i <= s1.length(); i++) {
 			for (int j = 1; j <= s2.length(); j++) {
 				char c = s3.charAt(i+j-1);
