@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class LongestSubstringwithAtMostKDistinctCharacters {
 
+	// http://www.programcreek.com/2013/02/longest-substring-which-contains-2-unique-characters/
 	public int lengthOfLongestSubstringKDistinct(String s, int k) {
         int st = 0;
         int ed = 0;
