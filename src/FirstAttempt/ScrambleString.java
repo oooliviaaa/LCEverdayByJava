@@ -33,4 +33,12 @@ public class ScrambleString {
         }
         return false;
     }
+	
+	
+	///////////////////////////
+	/**
+	 * 【动态规划解法】http://blog.csdn.net/ljiabin/article/details/44537523
+	 * */
+	
+	
 }
