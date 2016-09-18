@@ -8,14 +8,13 @@ public class TextJustification {
 	// http://www.cnblogs.com/springfor/p/3896168.html
 	public List<String> fullJustify(String[] words, int maxWidth) {
 		List<String> res = new ArrayList<String>();
-		if (words == null || words.length == 0 || maxWidth == 0) return res;
+		if (words == null || words.length == 0) return res;
 		
-		int preWordsLen = 0;  // 正在处理的这一行从行始所有单词的长度总和。
+		int preWordsLen = 0;  // 正在处理的这一行从行始所有单词的长度总和（不包括空格）
 		int preWord = 0;  // 正在处理的这行第一个单词在words中的index
 		
 		for (int i = 0; i < words.length; i++) {
-			int len = preWordsLen + words[i].length() + (preWord - i);  //preWord - i 是至少有几个空格（每词间仅有一个空格）
-			
+			int len = preWordsLen + words[i].length() + (i - preWord);  //i - preWord 是至少有几个空格（每词间仅有一个空格）
 			if (len > maxWidth) {  // 这行加上words[i]之后超出长度maxWidth了，所以这行的单词就是preWord~words[i-1]这么多，开始处理这行
 				StringBuffer sb = new StringBuffer();
 				if (i-1 - preWord > 0) {  // 如果这行不止一个单词（因为尝试当前words[i]后发现比L长了， 所以只处理到i-1号单词）
@@ -47,23 +46,22 @@ public class TextJustification {
 				
 			} 
 				
-			preWordsLen += words[i].length();  // 继续加单词
+			preWordsLen += words[i].length();  // 继续加单词. !!!!! 注意！无论如何preWordLen都要加上这第i个单词！
 		}
-		
-		String lastLine = res.get(res.size()-1);
-		res.remove(res.size()-1);
-		String[] lastWords = lastLine.split(" ");
+
+		// 处理最后一行 !!!!!
 		StringBuffer sb = new StringBuffer();
-		for (int i = 0; i < lastWords.length-1; i++) {
-			sb.append(lastWords[i]);
+		for (int i = preWord; i < words.length-1; i++) {
+			sb.append(words[i]);
 			sb.append(" ");
 		}
-		sb.append(lastWords[lastWords.length-1]);
+		sb.append(words[words.length-1]);
 		for (int i = sb.length(); i < maxWidth; i++) {
 			sb.append(" ");
 		}
 		res.add(sb.toString());
 		return res;
+		
     }
 	
 	
