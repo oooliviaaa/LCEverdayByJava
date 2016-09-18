@@ -13,7 +13,7 @@ public class HouseRobberIII {
 		if(root == null)
 	        return 0;
 	 
-		// // res[0] is when root is selected, result[1] is when not. 
+		// res[0] is when root is selected, result[1] is when not. 
 	    int[] res = getMaxMoney(root);
 	    return Math.max(res[0], res[1]);
 	}
