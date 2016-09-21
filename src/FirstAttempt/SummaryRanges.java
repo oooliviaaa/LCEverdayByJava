@@ -18,12 +18,13 @@ public class SummaryRanges {
 			}
 			
 			addResult(res, nums[left], nums[right-1]);
-			
 			left = right;
 			right++;
 		}
 		
-		addResult(res, nums[left], nums[right-1]);   // add the last one
+		if (left < nums.length) {
+			addResult(res, nums[left], nums[right-1]);   // add the last one
+		}
 		return res;
     }
 	
