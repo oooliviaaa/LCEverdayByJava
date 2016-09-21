@@ -33,8 +33,6 @@ public class SingleNumberIII {
         	if ((num & lastOne) == 0) {   ///// 你不知道otherwise会是什么number，所以只能check是不是0
         		num1 ^= num;
         	} else {
-        		System.out.println(num & lastOne);
-
         		num2 ^= num;
         	}
         }
