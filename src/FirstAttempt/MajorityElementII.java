@@ -23,7 +23,7 @@ public class MajorityElementII {
 		int cn = 0;
 		int cm = 0;
 		
-		for (int i = 0; i < nums.length; i++) { ///// 一定要exclusive!!!!!
+		for (int i = 0; i < nums.length; i++) { ///// 条件一定要exclusive!!!!!
 			int cur = nums[i];
 			if (n != null && cur == n) {
 				cn++;
