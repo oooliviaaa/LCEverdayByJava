@@ -13,7 +13,7 @@ public class DungeonGame {
         int col = dungeon[0].length;
         
         int[][] dp = new int[row][col];
-        dp[row-1][col-1] = Math.max(1, 1 - dungeon[row-1][col-1]); ///// max !!!!!
+        dp[row-1][col-1] = Math.max(1, 1 - dungeon[row-1][col-1]);     ///// max !!!!!
         
         // initial last row
         for (int j = col-2; j >= 0; j--) {
@@ -29,7 +29,7 @@ public class DungeonGame {
         	for (int j = col-2; j >= 0; j--) {
         		int toRight = Math.max(1, dp[i][j+1] - dungeon[i][j]);
         		int toDown = Math.max(1,  dp[i+1][j] - dungeon[i][j]);
-        		dp[i][j] = Math.min(toRight, toDown);      ///// min !!!!!
+        		dp[i][j] = Math.min(toRight, toDown);                   ///// min !!!!!
         	}
         }
         return dp[0][0];
