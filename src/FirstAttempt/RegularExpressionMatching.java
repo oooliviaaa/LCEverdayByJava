@@ -22,7 +22,7 @@ public class RegularExpressionMatching {
 		// if p is longer than 1
 		// case1: when the second char of p is not '*', easy case.
 		if(p.charAt(1) != '*') {
-			if(s.length() < 1) return false;  ////not < 2//// eg. s="a", p="ab*", still match
+			if(s.length() < 1) return false;  ////not < 2//// eg. s="a", p="b*", still match
 			if((p.charAt(0) != s.charAt(0)) && (p.charAt(0) != '.')) return false;
             else return isMatch(s.substring(1), p.substring(1));   // consume one char, continue matching
 		}
@@ -43,4 +43,19 @@ public class RegularExpressionMatching {
 		}
 		return false;
     }
+	
+	public static void main(String[] args) {
+		String p = "a";
+		String s = "a";
+		RegularExpressionMatching re = new RegularExpressionMatching();
+		boolean res = re.isMatch(s, p);
+		System.out.println(res);
+		
+		
+		
+		/////
+		String a = p.substring(1);
+		System.out.println(a);   // 空string，而非null或者exception
+		
+	}
 }
