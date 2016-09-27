@@ -19,7 +19,7 @@ public class ReadNCharactersGivenRead4II_CallMultipleTimes {
     			while (count < n && offset < preLen) {
     				buf[count++] = tmp[offset++];
     			}
-    			if (offset == preLen) offset = 0;   /////// !!!!!
+    			if (offset == preLen) offset = 0;   /////// !!!!! 记得更新offset值，小心deadloop
     			else offset %= 4;
     		} else {
     			preLen = read4(tmp);
