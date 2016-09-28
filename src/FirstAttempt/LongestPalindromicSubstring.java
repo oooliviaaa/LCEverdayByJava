@@ -18,6 +18,7 @@ public class LongestPalindromicSubstring {
 			if(s.charAt(i) == s.charAt(i+1)) {
 				dp[i][i+1] = true;
 				maxLen = 2;
+				palinStart = i;
 			}			
 		}
 		
@@ -26,6 +27,8 @@ public class LongestPalindromicSubstring {
 			for(int p = 0; p <= len - length; p++) {
 				int q = p + length - 1;  ///////// need to -1 so the length is
 				if(s.charAt(p) == s.charAt(q) && dp[p+1][q-1]){
+					System.out.println(p);
+					System.out.println(q);
 					dp[p][q] = true;
 					maxLen = length;
 					palinStart = p;
@@ -38,4 +41,10 @@ public class LongestPalindromicSubstring {
 															  //endIndex -- the end index, exclusive.
 	
     }
+	
+	public static void main(String[] args) {
+		LongestPalindromicSubstring lp = new LongestPalindromicSubstring();
+		String res = lp.longestPalindrome("abb");
+		System.out.println(res);
+	}
 }
