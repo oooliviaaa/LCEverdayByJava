@@ -2,6 +2,7 @@ package FirstAttempt;
 
 public class MinimumSizeSubarraySum {
 
+	// http://www.programcreek.com/2014/05/leetcode-minimum-size-subarray-sum-java/
 	public int minSubArrayLen(int s, int[] nums) {
 		if (nums == null || nums.length == 0) return 0;
         int res = Integer.MAX_VALUE;

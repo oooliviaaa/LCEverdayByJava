@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class IsomorphicStrings {
 
+	// http://www.programcreek.com/2014/05/leetcode-isomorphic-strings-java/
 	public boolean isIsomorphic(String s, String t) {
         if (s == null || t == null) return false;
         if (s.length() != t.length()) return false;
