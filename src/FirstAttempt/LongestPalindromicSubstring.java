@@ -18,7 +18,7 @@ public class LongestPalindromicSubstring {
 			if(s.charAt(i) == s.charAt(i+1)) {
 				dp[i][i+1] = true;
 				maxLen = 2;
-				palinStart = i;
+				palinStart = i;  ///// don't forget update palinStart!!!!
 			}			
 		}
 		
@@ -31,7 +31,7 @@ public class LongestPalindromicSubstring {
 					System.out.println(q);
 					dp[p][q] = true;
 					maxLen = length;
-					palinStart = p;
+					palinStart = p;   ///// don't forget update palinStart!!!!
 				}
 			}
 		}
