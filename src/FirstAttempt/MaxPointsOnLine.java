@@ -1,10 +1,23 @@
-package FirstAttempt.MaxPointsOnLine;
+package FirstAttempt;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class MaxPointsOnLine {
 
+	class Point {
+
+		int x;
+		int y;
+		
+		Point() { x = 0; y = 0; }
+		
+		public Point(int x, int y) {
+			this.x = x;
+			this.y = y;
+		}
+	}
+	
 	public  int maxPoints(Point[] points) {
 		if (points == null || points.length == 0) return 0;
 		int max = 0;
