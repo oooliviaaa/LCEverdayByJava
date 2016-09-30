@@ -30,7 +30,6 @@ public class MyPazzle_Airbnb {  // question from Qi
 	
 	private boolean dfs(int[][] input, Set<String> record, int spacex, int spacey) {
 		if (isCorrect(input)) {
-			printMatrix(input);
 			return true;
 		}
 		
@@ -52,7 +51,6 @@ public class MyPazzle_Airbnb {  // question from Qi
 			}			
 		}
 		return false;
-		
 	}
 	
 	private String convertArrayToString(int[][] input) {
@@ -100,9 +98,5 @@ public class MyPazzle_Airbnb {  // question from Qi
 		MyPazzle_Airbnb p = new MyPazzle_Airbnb();
 		p.solution(input);
 		p.printMatrix(input);
-		
-//		int[][] test = {{1,2},{0,3}};
-//		boolean b = p.isCorrect(test);
-//		System.out.println("test: " + b);
 	}
 }
