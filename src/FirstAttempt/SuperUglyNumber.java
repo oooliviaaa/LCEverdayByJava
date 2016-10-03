@@ -22,6 +22,8 @@ public class SuperUglyNumber {
         		min = Math.min(min, res[step] * p);
         	}
         	
+        	res[i] = min;
+        	
         	for (int j = 0; j < primes.length; j++) {
         		int p = primes[j];
         		int step = times[j];
