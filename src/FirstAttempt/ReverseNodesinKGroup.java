@@ -10,7 +10,7 @@ public class ReverseNodesinKGroup {
         dummy.next = head;
         ListNode pre = dummy;   ///////////// every time you do reverse, pass in the previous one!!! start from dummy!!!
         while(pre.next != null) {
-        	pre = reverseNextK(pre, k);
+        	pre = reverseNextK(pre, k);   // update the pre to the next-k-node's previous one
         }
         
         return dummy.next;
