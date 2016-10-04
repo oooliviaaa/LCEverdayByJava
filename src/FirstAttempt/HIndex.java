@@ -38,11 +38,11 @@ public class HIndex {
 		
 		for (int i = 0; i < citations.length; i++) {
 			int c = citations[i];
-			count[c>n ? n : c] += 1;
+			count[c>n ? n : c] += 1;      ///// !!!!! 小心，引用次数可能多于n
 		}
 		
 		int res = 0;
-		for (int i = n; i > 0; i--) {
+		for (int i = n; i > 0; i--) {     ///// 倒序找 !!!!!
 			res += count[i];
 			
 			if (res >= i) {
