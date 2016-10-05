@@ -20,19 +20,19 @@ public class Permutations {
 			res.add(tmp);
 		}
 		else {
-			for(int i = bg; i <= ed; i++) {
+			for(int i = bg; i <= ed; i++) {  // i必须从bg开始，这样当i=bg时，相当于不用换，这样也是一种permutation， see pic here: http://www.programcreek.com/2013/02/leetcode-permutations-java/
 				if(isSwapable(nums, bg, i)) {
 					swap(nums, bg, i);
-					processPermute(nums, bg+1, ed, res);
+					processPermute(nums, bg+1, ed, res);   ///// 下一个index还是从bg+1开始！！！！！
 					swap(nums, bg, i);
 				}
 			}
 		}
 	}
 	
-	private boolean isSwapable(int[] nums, int bg, int i) {
-		for(int k = bg; k < i; k++) {
-			if(nums[k] == nums[i]) return false;
+	private boolean isSwapable(int[] nums, int bg, int end) {
+		for(int k = bg; k < end; k++) {   // 主要是为了检查位于end的这个数之前有没有出现过，如果出现过就表示swap过了，会有重复    
+			if(nums[k] == nums[end]) return false;
 		}
 		return true;
 	}
