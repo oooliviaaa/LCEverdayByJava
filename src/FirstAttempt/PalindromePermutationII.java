@@ -34,8 +34,6 @@ public class PalindromePermutationII {
         		middle = c;
         	}
         }
-		System.out.println(hm.size());
-
         
         List<String> tmp = new ArrayList<String>();
         permutation(sb.toString().toCharArray(), 0, tmp);
