@@ -37,7 +37,7 @@ public class ExpressionAddOperators {
 		}
 		
 		for (int i = 1; i <= num.length(); i++) {
-			String cur = num.substring(0, 1);
+			String cur = num.substring(0, i);
 			if (cur.length() > 1 && cur.charAt(0) == '0') {
 				return;   // 对于前导为0的数予以排除, 这里是return不是continue
 			}
