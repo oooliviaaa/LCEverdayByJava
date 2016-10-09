@@ -38,7 +38,6 @@ public class ImplementTrie {
         	TrieNode node;
         	if (child.containsKey(w)) {
         		node = child.get(w);
-        		node.isleaf = false; ////// added by me...correct ??? 
         	} else {
         		node = new TrieNode(w);
         		child.put(w, node);
