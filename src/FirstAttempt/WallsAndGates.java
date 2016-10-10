@@ -9,6 +9,7 @@ public class WallsAndGates {
 
 	int[][] directions = {{1,0},{-1,0},{0,1},{0,-1}};
 	
+	// https://segmentfault.com/a/1190000003906674
 	public void wallsAndGates(int[][] rooms) {
 		if (rooms == null || rooms.length == 0 || rooms[0].length == 0) return;
         for (int i = 0; i < rooms.length; i++){
