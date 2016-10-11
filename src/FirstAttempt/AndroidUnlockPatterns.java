@@ -5,6 +5,11 @@ import java.util.Arrays;
 public class AndroidUnlockPatterns {
 
 	// https://discuss.leetcode.com/topic/46260/java-dfs-solution-with-clear-explanations-and-optimization-beats-97-61-12ms
+	/**
+	 * The optimization idea is that 1,3,7,9 are symmetric, 2,4,6,8 are also symmetric. 
+	 * Hence we only calculate one among each group and multiply by 4.
+	 * */
+	
 	public int numberOfPatterns(int m, int n) {
         if (m > 10 || n < 0) return 0;
         
