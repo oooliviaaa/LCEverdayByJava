@@ -3,9 +3,9 @@ package random;
 public class MoveZeroOne {
 
 	public static void main(String[] args) {
-		int[] nums = new int[]{1,1,1,0,1,0,1,1,0,0,0,1};
+		int[] nums = new int[]{0,0,1,1,1,0,1,0,1,1,0,0,0,1};
 		MoveZeroOne m = new MoveZeroOne();
-		m.solution(nums);
+		m.solution2(nums);
 		for (int i : nums) {
 			System.out.println(i);
 		}
@@ -22,6 +22,26 @@ public class MoveZeroOne {
 			if(nums[j] == 0) {
 				i++;            ///////////////////////// !!!!!
 				swap(nums, i, j);
+			} 
+			j++;
+		}
+		System.out.println("i: "+i+", j: "+j);
+	}
+	
+	
+	////////////
+	
+	public void solution2(int[] nums) {
+		if (nums == null || nums.length < 2) {
+			return;
+		}
+		int i = 0; 
+		int j = 0;
+		
+		while (j < nums.length) {
+			if(nums[j] == 0) {
+				swap(nums, i, j);
+				i++; 
 			} 
 			j++;
 		}

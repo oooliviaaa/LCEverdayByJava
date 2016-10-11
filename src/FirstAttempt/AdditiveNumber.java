@@ -12,7 +12,8 @@ public class AdditiveNumber {
         		return false;  ///// 以0开头的，例如“023”这种数字是不被允许的
         	}
         	Long x1 = Long.parseLong(num.substring(0, i));
-        	for (int len = 1; Math.max(i, len) <= num.length() - i - len; len++) {   // len为第二个数的长度
+        	for (int len = 1; Math.max(i, len) <= num.length() - i - len; len++) {   // i为第一个数的长度，len为第二个数的长度   
+        																			// for loop停止条件用i+(i+len) <= num.length()也行
         		if (num.charAt(i) == '0' && len > 1) {
         			break;  ///// 以0开头的，例如“023”这种数字是不被允许的. 这里是break!!!!!
         		}
