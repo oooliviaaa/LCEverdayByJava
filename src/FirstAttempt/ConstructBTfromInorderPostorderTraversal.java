@@ -29,8 +29,8 @@ public class ConstructBTfromInorderPostorderTraversal {
 			}
 		}
 		
-		root.left = helper(postorder, startPost, startPost+k-startIn-1, inorder, startIn, k-1);
-		root.right = helper(postorder, startPost+k-startIn, endPost-1, inorder, k+1, endIn);
+		root.left = helper(postorder, startPost, startPost-startIn+k-1, inorder, startIn, k-1);
+		root.right = helper(postorder, startPost-startIn+k, endPost-1, inorder, k+1, endIn);
 		return root;
 	}
 }
