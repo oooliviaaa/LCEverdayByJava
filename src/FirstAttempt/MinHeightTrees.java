@@ -28,6 +28,7 @@ public class MinHeightTrees {
 		for (int i = 0; i < n; i++) {
 			graph.put(i, new ArrayList<Integer>());
 		}
+		
 		for (int[] edge : edges) {
 			int n1 = edge[0]; int n2 = edge[1];
 			neighbors[n1]++;
@@ -44,7 +45,7 @@ public class MinHeightTrees {
 			}
 		}
 		
-		while (n > 2) {
+		while (n > 2) {   ///// until 2 nodes left
 			List<Integer> newLeaf = new ArrayList<Integer>();  
 			for (int l : leaf) {
 				n--;

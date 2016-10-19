@@ -32,7 +32,7 @@ public class FlipGameII {
 	// 更简洁的写法
 	public boolean canWin2(String s) {
         for(int i = 0; i < s.length()-1; i++){
-            if(s.charAt(i) == '+' && s.charAt(i+1) == '+' && !canWin(s.substring(0,i)+"--" + s.substring(i+2))){
+            if(s.charAt(i) == '+' && s.charAt(i+1) == '+' && !canWin2(s.substring(0,i)+"--" + s.substring(i+2))){
                 return true;
             }
         }
