@@ -8,7 +8,18 @@ import java.util.Map;
 
 public class PalindromePairs {
 
-	
+	// https://segmentfault.com/a/1190000005605192
+	// solution 1: hashmap
+	/**
+	 * HashMap和HashTable的区别：
+	 * 	HashTable是synchronized，所以对于non-threaded applications，HashMap效率更高；
+	 * 	HashTable不允许null作为键值，而HashMap允许一个null键和无限个null值；
+	 * 	HashMap有一个subclass，叫LinkedHashMap，便于查询可预测的迭代顺序。
+	 * 
+	 * 为什么Trie比HashMap效率更高
+	 * 	Trie可以在O(L)（L为word.length）的时间复杂度下进行插入和查询操作；
+	 * 	HashMap和HashTable只能找到完全匹配的词组，而Trie可以找到有相同前缀的、有不同字符的、有缺失字符的词组。
+	 * */
 	public List<List<Integer>> palindromePairs(String[] words) {
 		
 		List<List<Integer>> res = new ArrayList<List<Integer>>();
@@ -58,6 +69,63 @@ public class PalindromePairs {
 		}
 		return true;
 	}
+	
+	
+	//////////////////
+	// solution 2: trie tree
+	class TrieNode {
+        TrieNode[] next;
+        int index;
+        List<Integer> list;
+        TrieNode() {
+            next = new TrieNode[26];
+            index = -1;
+            list = new ArrayList<>();
+        }
+    }
+    public List<List<Integer>> palindromePairs2(String[] words) {
+        List<List<Integer>> res = new ArrayList<>();
+        TrieNode root = new TrieNode();
+        for (int i = 0; i < words.length; i++) {
+        	addWord(root, words[i], i);
+        }
+        for (int i = 0; i < words.length; i++) {
+        	search(words, i, root, res);
+        }
+        return res;
+    }
+    private void addWord(TrieNode root, String word, int index) {
+        for (int i = word.length() - 1; i >= 0; i--) {
+            if (root.next[word.charAt(i) - 'a'] == null) {
+            	root.next[word.charAt(i) - 'a'] = new TrieNode();
+            }
+            if (isPalindrome(word, 0, i)) root.list.add(index);
+            root = root.next[word.charAt(i) - 'a'];
+        }
+        root.list.add(index);
+        root.index = index;
+    }
+    private void search(String[] words, int i, TrieNode root, List<List<Integer>> list) {
+        for (int j = 0; j < words[i].length(); j++) {   
+            if (root.index >= 0 && root.index != i && isPalindrome(words[i], j, words[i].length() - 1)) list.add(Arrays.asList(i, root.index));
+            root = root.next[words[i].charAt(j) - 'a'];
+            if (root == null) return;
+        }
+        for (int j : root.list) {
+            if (i == j) continue;
+            list.add(Arrays.asList(i, j));
+        }
+    }
+    private boolean isPalindrome(String word, int i, int j) {
+        while (i < j) {
+            if (word.charAt(i++) != word.charAt(j--)) return false;
+        }
+        return true;
+    }
+    
+    
+    
+    
 	
 	public static void main(String[] args) {
 		PalindromePairs pp = new PalindromePairs();

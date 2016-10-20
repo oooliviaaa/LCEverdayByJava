@@ -1,6 +1,7 @@
 package TreeExercise;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Stack;
 
 public class PostOrderTraversal {
@@ -28,5 +29,26 @@ public class PostOrderTraversal {
 		}
 		return res;
 		
+	}
+	
+	////////////////
+	public ArrayList<TreeNode> postOrderIteration_OneStack(TreeNode root) {
+		ArrayList<TreeNode> res = new ArrayList<TreeNode>();
+		if(root == null) return res;
+		
+		Stack<TreeNode> s1 = new Stack<TreeNode>();
+		
+		s1.push(root);
+		
+		while(!s1.isEmpty()) {
+			TreeNode cur = s1.pop();
+			res.add(cur);
+			
+			if(cur.left != null) s1.push(cur.left);
+			if(cur.right != null) s1.push(cur.right);
+		}
+		
+		Collections.reverse(res);
+		return res;
 	}
 }
