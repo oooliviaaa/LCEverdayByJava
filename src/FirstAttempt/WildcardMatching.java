@@ -62,9 +62,30 @@ public class WildcardMatching {
 	
 	///////////////////3 - DP/////////////////
 	public boolean isMatch3(String s, String p) {
-		if(s == null) return p == null;
-		boolean[][] dp = new boolean[s.length()+1][p.length()+1];
-		dp[0][0] = true;
+		int width = s.length();
+        int height = p.length();
+         
+        boolean[][] dp = new boolean[width + 1][height + 1];
+        dp[0][0] = true;
+         
+        for (int i = 1; i <= width; i++){
+            for (int j = 1; j <= height; j++){
+                if (s.charAt(i-1) == p.charAt(j-1) || p.charAt(j-1) == '?'){
+                    dp[i][j] = dp[i-1][j-1];
+                }else if (p.charAt(j-1) == '*'){
+                    int cur = i;
+                    while (cur > 0){
+                        if (dp[cur-1][j-1]){
+                            dp[i][j]= true;
+                            break;
+                        }
+                        cur--;
+                    }
+                }
+            }
+        }
+         
+        return dp[width][height];
 		
 		
 		

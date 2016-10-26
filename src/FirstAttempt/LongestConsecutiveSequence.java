@@ -32,6 +32,7 @@ public class LongestConsecutiveSequence {
         	}
         	
         	res = Math.max(res, count);
+        	set.remove(n);   ///// remove 出去，减少重复计算，其实也可以不remove啦。。。
         }
         return res;
     }
