@@ -1,8 +1,10 @@
 package FirstAttempt;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class WordBreakII {
@@ -16,7 +18,7 @@ public class WordBreakII {
 		dict.add("and");
 		dict.add("sand");
 		dict.add("dog");
-		
+				
 		WordBreakII wb2 = new WordBreakII();
 		List<String> res = wb2.wordBreak(s, dict);
 			for (String l : res) {
