@@ -17,11 +17,11 @@ public class SortList {
         
         // 找middle
         p = head;
-        for (int i = 1; i < count / 2; i++) {
+        for (int i = 1; i < count / 2; i++) {   ///// !!!!!
         	p = p.next;
         }
         ListNode secHead = p.next;
-        p.next = null;
+        p.next = null;  ///// 别忘解耦 !!!!!
         
         ListNode h1 = sortList(head);
         ListNode h2 = sortList(secHead);

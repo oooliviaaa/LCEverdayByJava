@@ -8,7 +8,7 @@ public class ImplementTrie {
 	class TrieNode {
 
 		char val;
-		Map<Character, TrieNode> children;
+		Map<Character, TrieNode> children;   ///// 用hashmap可以方便的找到下一个child node!!!!!
 		boolean isleaf;
 		
 		public TrieNode(char val) {

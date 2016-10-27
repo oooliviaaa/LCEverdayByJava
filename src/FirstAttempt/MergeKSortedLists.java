@@ -22,7 +22,7 @@ public class MergeKSortedLists {
         															});
         
         for(ListNode list : lists) {
-        	if(list != null) pq.add(list);
+        	if(list != null) pq.add(list);   ///// 记得check是不是null!!!!!
         }
         
         ListNode head = new ListNode(0);
@@ -33,7 +33,7 @@ public class MergeKSortedLists {
         	point.next = tmp;
         	
         	// keep adding next element of each list
-        	if(tmp.next != null) pq.add(tmp.next);
+        	if(tmp.next != null) pq.add(tmp.next);    ///// 记得check是不是null!!!!!
         	
         	point = point.next;
         }
