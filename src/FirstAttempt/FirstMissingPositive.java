@@ -16,10 +16,9 @@ public class FirstMissingPositive {
         		//handle duplicate elements --> loop
         		if(cur == nums[cur]) break;
         		
-        		// swap elements
+        		// swap elements   其实只要做swap就够了，直到swap后nums[i] == i， 类似于Geoffrey出的那道题
         		nums[i] = nums[cur];
         		nums[cur] = cur; 
-        		for(int n : nums) System.out.print(n);
         	}
         }
         
