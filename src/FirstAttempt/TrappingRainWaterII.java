@@ -54,7 +54,7 @@ public class TrappingRainWaterII {
         		if (x >= 0 && y >= 0 && x < row && y < col && !visited[x][y]) {
         			visited[x][y] = true;
         			res += Math.max(0, cur.height - heightMap[x][y]);
-        			queue.offer(new Cell(x, y, Math.max(cur.height, heightMap[x][y])));
+        			queue.offer(new Cell(x, y, Math.max(cur.height, heightMap[x][y])));   ///// Math.max(cur.height, heightMap[x][y]) !!!!!
         		}
         	}
         }
