@@ -65,6 +65,7 @@ public class NumberofIslandsII {
 	
 	private int getRoot(int[] roots, int index) {
 		while (index != roots[index]) {
+			// 此处加不加 roots[index] = roots[roots[index]];都无所谓
 			index = roots[index];
 		}
 		return index;

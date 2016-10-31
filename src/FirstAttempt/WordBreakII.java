@@ -21,18 +21,18 @@ public class WordBreakII {
 				
 		WordBreakII wb2 = new WordBreakII();
 		List<String> res = wb2.wordBreak(s, dict);
-			for (String l : res) {
+		for (String l : res) {
+			System.out.println(l);
+		}
+		System.out.println("=====");
+		
+		List<ArrayList<String>> wordBreakAllResults = wb2.wordBreakAllResults(s, dict);
+		for (List<String> list : wordBreakAllResults) {
+			for (String l : list) {
 				System.out.println(l);
 			}
-			System.out.println("=====");
-			
-			List<ArrayList<String>> wordBreakAllResults = wb2.wordBreakAllResults(s, dict);
-			for (List<String> list : wordBreakAllResults) {
-				for (String l : list) {
-					System.out.println(l);
-				}
-				System.out.println("~~~");
-			}
+			System.out.println("~~~");
+		}
 		
 	}
 	
