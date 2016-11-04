@@ -43,7 +43,8 @@ public class WiggleSortII {
 	 * 2. 参照解法I的思路，将nums数组的下标x通过函数idx()从[0, 1, 2, ... , n - 1, n] 映射到 [1, 3, 5, ... , 0, 2, 4, ...]，得到新下标ix
 	 * 3. 以中位数mid为界，将大于mid的元素排列在ix的较小部分，而将小于mid的元素排列在ix的较大部分。
 	 * 详见：https://leetcode.com/discuss/77133/o-n-o-1-after-median-virtual-indexing
-	 * http://liveasatree.blogspot.com/2016/01/leetcode-wiggle-sort-ii.html
+	 * 
+	 * https://discuss.leetcode.com/topic/41464/step-by-step-explanation-of-index-mapping-in-java/13
 	 * */
 	public void wiggleSort2(int[] nums) {
 		
