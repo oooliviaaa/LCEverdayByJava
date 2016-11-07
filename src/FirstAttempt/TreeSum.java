@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class TreeSum {
 
 	
-public ArrayList<ArrayList<Integer>> threeSum(int[] num) {
+	public ArrayList<ArrayList<Integer>> threeSum(int[] num) {
 		
 		ArrayList<ArrayList<Integer>> rst = new ArrayList<ArrayList<Integer>>();
 		if(num == null || num.length < 3) {
