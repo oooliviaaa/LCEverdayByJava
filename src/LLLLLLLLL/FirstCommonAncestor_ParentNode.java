@@ -33,22 +33,24 @@ public class FirstCommonAncestor_ParentNode {
         }
         return depth;
     }
+    
+    class Node {
+   	 
+        final Node parent;
+        final Node left;
+        final Node right;
+     
+     
+        public Node(Node parent, Node left, Node right) {
+            this.parent = parent;
+            this.left = left;
+            this.right = right;
+        }
+     
+        boolean isRoot() {
+            return parent == null;
+        }
+    }
 }
 
-class Node {
-	 
-    final Node parent;
-    final Node left;
-    final Node right;
- 
- 
-    public Node(Node parent, Node left, Node right) {
-        this.parent = parent;
-        this.left = left;
-        this.right = right;
-    }
- 
-    boolean isRoot() {
-        return parent == null;
-    }
-}
+
