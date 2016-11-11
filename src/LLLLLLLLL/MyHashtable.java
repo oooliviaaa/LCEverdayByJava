@@ -4,6 +4,12 @@ public class MyHashtable<K, V> {
 
 	int tableSize;
 	HTNode<K, V>[] array;
+	static final int DEFAULT_SIZE = 1000;
+	
+	public MyHashtable() {
+		tableSize = DEFAULT_SIZE;
+		array = new HTNode[DEFAULT_SIZE];
+	}
 	
 	public MyHashtable(int size) {
 		tableSize = size;
