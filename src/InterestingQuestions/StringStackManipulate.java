@@ -48,7 +48,8 @@ public class StringStackManipulate {
 	
 	private void backtracking(String s, int index, String tmp, Stack<Character> stack, List<String> res) {
 		if (index == s.length()) {
-            Stack<Character> st = (Stack<Character>) stack.clone();  ///// 不能在原stack上进行pop!!!会破坏backtracking
+            @SuppressWarnings("unchecked")
+			Stack<Character> st = (Stack<Character>) stack.clone();  ///// 不能在原stack上进行pop!!!会破坏backtracking
 			while (!st.isEmpty()) {
 				char c = st.pop();
 				tmp += c;

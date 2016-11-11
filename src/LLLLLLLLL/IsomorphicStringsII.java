@@ -1,9 +1,9 @@
 package LLLLLLLLL;
 
-public class IsomorphicStrings {
+public class IsomorphicStringsII {
 
 	// follow up问了一下如果input是很多string呢。
-	public boolean isIsomorphic(String s, String t) {
+	public boolean isIsomorphic(String[] input) {
         
     }
 }
