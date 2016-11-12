@@ -3,7 +3,7 @@ package LLLLLLLLL;
 public class MaximumLengthPalindromicSubsequence {
 	
 	
-	// not contiguous
+	// not contiguous!!!!!
 	public static int maxLengthPalindrome(int[] input) {
         if (input == null || input.length == 0) return 0;
         return helper(input, 0, input.length-1);
@@ -27,10 +27,10 @@ public class MaximumLengthPalindromicSubsequence {
 	
 	////////////////////
 	// follow up: contiguous, same with longest palindromic substring
-	public static int maxLengthPalindrome2(int[] input) { 
-		
-		
-	}
+//	public static int maxLengthPalindrome2(int[] input) { 
+//		
+//		
+//	}
 	
 	
 	
