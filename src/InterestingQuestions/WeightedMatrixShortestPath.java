@@ -1,8 +1,6 @@
 package InterestingQuestions;
 
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
 
 public class WeightedMatrixShortestPath {
 
@@ -35,7 +33,7 @@ public class WeightedMatrixShortestPath {
 	}
 	
 	public static void main(String[] args) {
-		int[][] matrix = {{1,2,3}, {2,5,-1}, {5,8,9}, {10,11,12}};
+		int[][] matrix = {{1,2,3}, {2,0,-1}, {5,8,9}, {10,11,12}};
 		WeightedMatrixShortestPath wm = new WeightedMatrixShortestPath();
 		int res = wm.solution(matrix, 0, 0, 3, 2);
 		System.out.println(res);
