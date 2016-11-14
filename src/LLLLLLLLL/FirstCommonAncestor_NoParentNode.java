@@ -17,16 +17,17 @@ public class FirstCommonAncestor_NoParentNode {
 		}
 	}
 	
+	class Node {
+	    final Node left;
+	    final Node right;
+	 
+	 
+	    public Node(Node left, Node right) {
+	        this.left = left;
+	        this.right = right;
+	    }
+	}
+	
 }
 
 
-class Node {
-    final Node left;
-    final Node right;
- 
- 
-    public Node(Node left, Node right) {
-        this.left = left;
-        this.right = right;
-    }
-}
