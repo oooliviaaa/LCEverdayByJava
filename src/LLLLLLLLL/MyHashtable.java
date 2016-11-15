@@ -1,5 +1,7 @@
 package LLLLLLLLL;
 
+import java.util.Arrays;
+
 public class MyHashtable<K, V> {
 
 	int tableSize;
@@ -49,6 +51,37 @@ public class MyHashtable<K, V> {
 			}
 		}
 
+	}
+	
+	public boolean remove(K key) {
+		int index = key.hashCode() % tableSize;
+		HTNode<K, V> node = array[index];
+		if (node == null) {
+			return false;
+		}
+		HTNode<K, V> p = node;
+		while (p != null) {
+			if (p.key.equals(key)) {
+				p.value = null;
+				return true;
+			} else {
+				p = p.next;
+			}
+		}
+		return false;
+	}
+	
+	public void resize(int size) {
+		this.tableSize = size;
+		HTNode<K, V>[] reference = Arrays.copyOf(array, array.length);
+		array = new HTNode[size];
+		for (HTNode<K, V> node : reference) {
+			if (node == null) continue;
+			while (node != null) {
+				put(node.key, node.value);
+				node = node.next;
+			}
+		}
 	}
 	
 }

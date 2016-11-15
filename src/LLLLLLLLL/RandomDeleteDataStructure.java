@@ -22,8 +22,8 @@ public class RandomDeleteDataStructure<T> {
     public boolean add(T element) {
     	if(!elements.contains(element)) {
         	elements.add(element);
-        	indexElement.put(elements.size() - 1, element);
-        	elementIndex.put(element, elements.size() - 1);
+        	indexElement.put(elements.size(), element);
+        	elementIndex.put(element, elements.size());
             return true;
         }
         return false;
