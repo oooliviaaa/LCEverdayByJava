@@ -1,12 +1,31 @@
 package LLLLLLLLL;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class NestedListWeightSum {
 
 	
 	public int depthSum(List<NestedInteger> nestedList) {
-        
+		if (nestedList == null || nestedList.size() == 0) {
+            return 0;
+        }
+         
+        return helper(nestedList.iterator(), 1);
+    }
+	 
+	private int helper(Iterator<NestedInteger> iterator, int depth) {
+		int sum = 0;
+		
+		while (iterator.hasNext()) {
+			NestedInteger cur = iterator.next();
+			if (cur.isInteger()) {
+				sum += depth * cur.getInteger();
+			} else {
+				sum += helper(cur.getList().iterator(), depth+1);
+			}
+		}
+		return sum;
     }
 }
 
