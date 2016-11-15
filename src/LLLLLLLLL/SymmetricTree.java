@@ -1,7 +1,7 @@
 package LLLLLLLLL;
 
 public class SymmetricTree {
-	
+	// mirror tree
 	public boolean isSymmetric(TreeNode root) {
         if (root == null) return true;
 		return helper(root.left, root.right);

@@ -1,6 +1,6 @@
 package LLLLLLLLL;
 
-public class NumberOfSubsetubsetsSumX {
+public class NumberOfSubsetSumX {
 
 	int numSubsets(int[] array, int target) {
 		if (array == null || array.length == 0) {
@@ -27,7 +27,7 @@ public class NumberOfSubsetubsetsSumX {
 	
 	public static void main(String[] args) {
 		int[] array = {1,4,6,-1,-2,-4};
-		NumberOfSubsetubsetsSumX ns = new NumberOfSubsetubsetsSumX();
+		NumberOfSubsetSumX ns = new NumberOfSubsetSumX();
 		int res = ns.numSubsets(array, 0);
 		System.out.println(res);
 	}
