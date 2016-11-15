@@ -36,10 +36,33 @@ public class ShortestWordDistanceII {
         return res;
     }
     
+    
+    //////////////////
+    // TLE
+
+    public int shortest(String words[], String word1, String word2) {
+        int res = Integer.MAX_VALUE;
+        int pos1 = -1;
+        int pos2 = -1;
+        for (int i = 0; i < words.length; i++) {
+            String cur = words[i];
+            if (cur.equals(word1)) {
+                pos1 = i;
+            } else if (cur.equals(word2)) {
+                pos2 = i;
+            }
+            
+            if (pos1 != -1 && pos2 != -1) {
+                res = Math.min(res, Math.abs(pos1 - pos2));
+            }
+        }
+        return res;
+    }
+    
     public static void main(String[] args) {
-    	String[] words = new String[]{"a", "b"};
+    	String[] words = new String[]{"a", "c", "a", "d", "b"};
     	ShortestWordDistanceII sw = new ShortestWordDistanceII(words);
-    	int res = sw.shortest("a", "b");
+    	int res = sw.shortest(words, "b", "c");
     	System.out.println(res);
     }
 }
