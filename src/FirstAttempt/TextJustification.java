@@ -42,8 +42,6 @@ public class TextJustification {
 				res.add(sb.toString());
 				preWord = i;      // 下一行从第i个单词开始
 				preWordsLen = 0;
-				
-				
 			} 
 				
 			preWordsLen += words[i].length();  // 继续加单词. !!!!! 注意！无论如何preWordLen都要加上这第i个单词！
