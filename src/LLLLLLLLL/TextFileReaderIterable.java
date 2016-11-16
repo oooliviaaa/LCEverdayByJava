@@ -7,12 +7,12 @@ import java.io.IOException;
 import java.util.Iterator;
 //import java.util.Scanner;
 
-public class TextFile implements Iterable<String>{
+public class TextFileReaderIterable implements Iterable<String>{
     
     private BufferedReader br;
 //    private Scanner scanner;
 
-    public TextFile(String fileName) throws FileNotFoundException {
+    public TextFileReaderIterable(String fileName) throws FileNotFoundException {
             br = new BufferedReader(new FileReader(fileName));
 //            scanner = new Scanner(new FileReader(fileName));
     }
