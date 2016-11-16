@@ -1,13 +1,43 @@
 package LLLLLLLLL;
 
+import java.util.Arrays;
+
 public class MultiDimensionArraySum {
 
 	
-	public int arraySum (MultiDimArray m, int[] dimensions) {
+	public int arraySum(MultiDimArray m, int[] dimensions) {
+	    int dimension = dimensions.length;
+	    int index = dimension - 1;
+	    int res = 0;
 	    
+	    int[] position = new int[dimension];
+	    Arrays.fill(position, 0);
+	    
+	    boolean needStartAgain = false;
+	    
+	    while (true) {
+	    	
+	    	if (position[index] == dimensions[index]) {
+	    		position[index] = 0;
+	    		
+	    		index--;
+		    	if (index < 0) break;
+	    		position[index]++;
+	    		needStartAgain = true;
+	    	} else {
+	    		res += m.get(position);
+	    		position[index]++;
+	    		
+	    		if (needStartAgain) {
+	    			index = dimension - 1;
+	    			needStartAgain = false;
+	    		}
+	    	}
+	    }
+	    return res;
 	}
 }
 
 interface MultiDimArray {
-    int get(int[] indices);
+    int get(int[] position);
 }

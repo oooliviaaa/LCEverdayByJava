@@ -62,7 +62,7 @@ public class MaximumLengthPalindromicSubsequence {
 	
 	public static void main(String[] args) {
 		int[] input = {1,0,2,8,3,4,5,5,4,9,3,2,1};
-		int res = maxLengthPalindrome(input);
+		int res = maxLengthPalindrome2(input);
 		System.out.println(res);
 	}
 }
