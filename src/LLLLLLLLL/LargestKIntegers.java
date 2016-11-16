@@ -7,29 +7,25 @@ import java.util.PriorityQueue;
 
 public class LargestKIntegers<V extends Comparable<V>> {
 	 
-	  private final int maxSize;
-	  private final PriorityQueue<V> top;
+	  private final int size;
+	  private final PriorityQueue<V> pq;
 	 
-	  public LargestKIntegers(int maxSize) {
-	    this.maxSize = maxSize;
-	    this.top = new PriorityQueue<V>(Math.max(1, maxSize));
+	  public LargestKIntegers(int size) {
+	    this.size = size;
+	    this.pq = new PriorityQueue<V>(Math.max(size, 1));
 	  }
 	 
-	  public void add(V nextValue) {
+	  public void add(V val) {
 	    // The first two conditions merely optimize for special cases:
-	    if (maxSize <= 0) // silly, but well defined
-	      return;
-	    else if (top.size() >= maxSize && nextValue.compareTo(top.peek()) <= 0)
-	      return;
-	    // This is sufficient in all cases:
-	    else if (top.add(nextValue) && top.size() > maxSize) {
-	      top.poll();
-	    }
+		  if (size <= 0) return;
+		  if (val.compareTo(pq.peek()) <= 0) return;
+		  pq.offer(val);
+		  while (pq.size() > size) {
+			  pq.poll();
+		  }
 	  }
 	 
 	  public Collection<V> getTop() {
-	    return Collections.unmodifiableList(new ArrayList<V>(top)); // defensive wrapper
+	    return new ArrayList<V>(pq);
 	  }
-	
-
 }
