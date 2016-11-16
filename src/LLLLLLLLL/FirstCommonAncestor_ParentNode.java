@@ -7,29 +7,31 @@ public class FirstCommonAncestor_ParentNode {
         int depthB = depth(b);
         int delta = Math.abs(depthA - depthB);
  
-        Node first = depthA > depthB ? a : b;
-        Node second = depthA > depthB ? b : a;
+        Node longer = depthA > depthB ? a : b;
+        Node shorter = depthA > depthB ? b : a;
  
         // first is deeper, so we moving it to the same level as second has
         for (int i = 0; i < delta; i++) {
-            first = first.parent;
+            longer = longer.parent;
         }
  
         // now first and second are on the same level,
         // so moving up one level at a time will eventually result in a referencing the same node
         // (root node in a worst case)
-        while (first != second) {
-            first = first.parent;
-            second = second.parent;
+        while (longer != shorter) {
+        	longer = longer.parent;
+        	shorter = shorter.parent;
         }
  
-        return second;
+        return longer;
     }
  
-    private static int depth(Node n) {
+    private static int depth(Node node) {
         int depth = 0;
-        for (Node t = n; !t.isRoot(); t = t.parent) {
+        Node p = node;
+        while (!p.isRoot()) {
             depth++;
+            p = p.parent;
         }
         return depth;
     }
