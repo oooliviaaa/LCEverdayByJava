@@ -29,6 +29,20 @@ public class ImplementationBST {
 			pre.setRightChild(node);
 		}
 	}
+	
+	public boolean find(int id){
+		BSTNode current = root;
+		while(current!=null){
+			if(current.getVal()==id){
+				return true;
+			}else if(current.getVal()>id){
+				current = current.getLeftChild();
+			}else{
+				current = current.getRightChild();
+			}
+		}
+		return false;
+	}
 }
 
 
