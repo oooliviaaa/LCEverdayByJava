@@ -25,4 +25,35 @@ public class Subsets {
             tmp.remove(tmp.size()-1);
         }
 	}
+
+
+    /////////////////
+    // only output nums
+    public int getNumSubset(int[] nums) {
+        return helper2(nums, 0) + 1;
+    }
+
+    private int helper2(int[] nums, int index) {
+        if (index >= nums.length) return 0;
+        int count = 0;
+        for (int i = index; i < nums.length; i++) {
+            count += helper2(nums, i+1) + 1;
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+    	Subsets s = new Subsets();
+    	int[] nums = new int[]{1,2,3,4};
+    	int res = s.getNumSubset(nums);
+    	List<List<Integer>> real = s.subsets(nums);
+    	System.out.println("res: " + res + " real: " + real.size());
+    	for (List<Integer> re : real) {
+    		for (int r : re) {
+    			System.out.print(r + " ");
+    		}
+    		System.out.println();
+    	}
+    }
+
 }

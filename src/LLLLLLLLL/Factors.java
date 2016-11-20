@@ -19,11 +19,13 @@ public class Factors {
 		if (product > n || start > n) return;
 		
 		if (product == n) {
+			
 			if (tmp.size() == 1) {
 				res.add(tmp.get(0) + " * 1");
 			}
 			else {
-				Collections.sort(tmp, Collections.reverseOrder());
+//				List<Integer> tm = new ArrayList<Integer>(tmp);
+//				Collections.sort(tm, Collections.reverseOrder());
 				String s = "";
 	            for (Integer f : tmp) {
 	                s += " * " + f;
@@ -48,7 +50,7 @@ public class Factors {
 	
 	public static void main(String[] args) {
 		Factors f = new Factors();
-		Set<String> res = f.getFactors(24);
+		Set<String> res = f.getFactors(12);
 		System.out.println(res);
 	}
 }
