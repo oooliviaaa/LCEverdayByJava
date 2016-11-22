@@ -6,9 +6,59 @@ import java.util.List;
 
 public class FindAllAnagramsInString {
 	
+	public List<Integer> mysolution(String s, String p) {
+		 List<Integer> res = new ArrayList<Integer>();
+	        if (s == null || p == null || s.length() < p.length()) {
+	            return res;
+	        }
+	        
+	        int[] note = new int[256];
+	        
+	        for (int i = 0; i < p.length(); i++) {
+	            note[p.charAt(i)]++;
+	        }
+	        int left = 0;
+	        int right = 0;
+	        int count = p.length();
+	        
+	        while (right < s.length()) {
+	            char cur = s.charAt(right);
+	            if (note[cur] > 0) {
+	                note[cur]--;
+	                count--;
+	            }
+	            right++;
+	            
+	            if (count == 0) {
+	                res.add(left);
+	            }
+	            
+	            if (right - left == p.length()) {
+	                char pre = s.charAt(left);
+	                if (p.contains(String.valueOf(pre))) count++;
+	                left++;
+	            }
+	        }
+	        return res;
+	}
+	
+	public static void main(String[] args) {
+		String s = "cbaebabacd";
+		String p = "abc";
+		
+		FindAllAnagramsInString fa = new FindAllAnagramsInString();
+		List<Integer> res = fa.findAnagrams(s, p);
+		System.out.println(res);
+	}
+	
+	
+	
+	
+	
+	
 	// https://discuss.leetcode.com/topic/64622/17ms-java-sliding-window/7
 	public List<Integer> findAnagrams(String s, String p) {
-		List<Integer> list = new ArrayList<>();
+		List<Integer> list = new ArrayList<Integer>();
 	    if (s == null || s.length() == 0 || p == null || p.length() == 0) return list;
 	    int[] hash = new int[256]; //character hash
 	    //record each character in p to hash
