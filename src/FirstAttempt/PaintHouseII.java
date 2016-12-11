@@ -2,6 +2,46 @@ package FirstAttempt;
 
 public class PaintHouseII {
 
+	
+	// my solution
+	public int mySolution(int[][] costs) {
+        if (costs != null && costs.length == 0) return 0;
+		int len = costs.length;   // house
+		int k = costs[0].length;  // color
+        
+        int premin = 0;
+        int preminSec = 0;
+        int preminHouse = 0;
+        
+        for (int i = 0; i < len; i++) {
+            int curmin = Integer.MAX_VALUE;
+            int curminSec = Integer.MAX_VALUE;
+            int curminHouse = -1;
+            
+            for (int j = 0; j < k; j++) {
+                int cost = costs[i][j] + (j == preminHouse ? preminSec : premin);
+                if (cost < curmin) {
+                    curminSec = curmin;
+                    curmin = cost;
+                    curminHouse = j;
+                } else if (cost < curminSec) {
+                    curminSec = cost;
+                }
+            }
+            
+            premin = curmin;
+            preminSec = curminSec;
+            preminHouse = curminHouse;
+        }
+        return premin;
+    }
+	
+	
+	
+	
+	
+	///////////////////////
+	
 	// https://segmentfault.com/a/1190000003903965
 	/**
 	 * 和I的思路一样，不过这里我们有K个颜色，不能简单的用Math.min方法了。

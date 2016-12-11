@@ -8,7 +8,7 @@ import java.util.Set;
 public class CanIWin {
 
 	// https://discuss.leetcode.com/topic/68896/java-solution-using-hashmap-with-detailed-explanation
-	/**
+	/** with memory o(2^n)
 	 * Since in the problem statement, it says maxChoosableInteger will not be larger than 20, 
 	 * which means the length of our boolean[] array will be less than 20. 
 	 * Then we can use an Integer to represent this boolean[] array. How?

@@ -1,4 +1,4 @@
-package FirstAttempt;
+package LLLLLLLLLLL;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,14 +6,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class InsertDeleteGetRandomO1 {
-
+public class RandomDeleteDSO1 {
 	List<Integer> list;
-	Map<Integer, Integer> map;
+	Map<Integer, Integer> map;   // element - index
 	Random r;
 	
 	/** Initialize your data structure here. */
-    public InsertDeleteGetRandomO1() {
+    public RandomDeleteDSO1() {
         list = new ArrayList<Integer>();
         map = new HashMap<Integer, Integer>();
         r = new Random();
@@ -43,9 +42,9 @@ public class InsertDeleteGetRandomO1 {
         return true;
     }
     
-    /** Get a random element from the set. */
-    public int getRandom() {
-        int ranIndex = r.nextInt(list.size());
-        return list.get(ranIndex);
+    /** Delete a random element from the set. */
+    public boolean deleteRandom() {
+        int ele = list.get(r.nextInt(list.size()));
+        return remove(ele);
     }
 }

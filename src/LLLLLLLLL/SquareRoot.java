@@ -26,17 +26,18 @@ public class SquareRoot {
 	// implement sqrt()
 	// binary search: https://discuss.leetcode.com/topic/8680/a-binary-search-solution/2
 	public int sqrt(int x) {
-        if (x == 0) return 0;
+		if (x <= 0) return 0;
         int left = 1;
-        int right = Integer.MAX_VALUE;
+        int right = x;
+        
         while (true) {
-        	int mid = left + (right - left)/2;
-            if (mid * mid > x) {
+            int mid = left + (right - left) / 2;
+            if (mid > x / mid) {   // 防止TLE ！！！！！
                 right = mid - 1;
-            } else if ((mid + 1) * (mid + 1) > x) {  // 已经不满足if中的条件了，所以可以直接判断出找到了结果
-                    return mid;
+            } else if ((mid+1) > x / (mid+1)) {
+                return mid;
             } else {
-            	left = mid + 1;
+                left = mid + 1;
             }
         }
     }	
