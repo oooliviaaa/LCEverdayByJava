@@ -16,10 +16,24 @@ public class ShuffleAnArray {
 		}
 	}
 	
+	
+	////////////////////////////
+	//////practice/////
+	public void shuffle(int[] array) {
+		if (array == null || array.length <= 1) return;
+		Random r = new Random();
+		for (int i = 0; i < array.length; i++) {
+			int next = r.nextInt(array.length - i);
+			int tmp = array[i];
+			array[i] = array[i + next];
+			array[i + next] = tmp;
+		}
+	}
+	
 	public static void main(String[] args) {
 		int[] a = {1,2,3,4,5,6,7,8,9};
 		ShuffleAnArray sa = new ShuffleAnArray();
-		sa.shuffleArray(a);
+		sa.shuffle(a);
 		for (int i : a) System.out.print(i + " ");
 	}
 }

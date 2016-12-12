@@ -29,6 +29,8 @@ public class KthLargestElementinArray {
 	
 
 	private int find(int k, int[] nums, int bg, int ed) {
+		if (bg > ed) return Integer.MAX_VALUE;
+		
 		int pivot = nums[bg];
 		
 		int left = bg;
