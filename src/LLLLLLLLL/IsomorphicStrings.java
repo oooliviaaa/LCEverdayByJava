@@ -18,7 +18,7 @@ public class IsomorphicStrings {
         	if (hm.containsKey(c1)) {
         		if (hm.get(c1) != c2) return false;
         	} else {
-        		if(hm.containsValue(c2)) return false; //if c2 is already being mapped !!!!! 
+        		if(hm.containsValue(c2)) return false; //containsValue() !!!!!! if c2 is already being mapped !!!!! 
         		hm.put(c1, c2);
         	}
         }

@@ -14,8 +14,9 @@ public class DeepIteratorImpl<T> implements Iterator<T> {
 		stack = new Stack<Data<T>>();
 
     	if (c != null) {
-        	for (Data<T> ele : c) {
-        		stack.push(ele);
+    		Data<T>[] array = (Data<T>[]) c.toArray();
+        	for (int i = array.length-1; i >= 0; i--) {
+        		stack.push(array[i]);
         	}
     	}
     	
