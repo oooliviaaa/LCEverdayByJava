@@ -23,7 +23,7 @@ public class MinimumWindowSubstring {
         }
         
         int findCount = 0;   ///// 用来记录t中字母是不是全找到了。!!!!!
-        Map<Character, Integer> find = new HashMap<Character, Integer>();
+        Map<Character, Integer> find = new HashMap<Character, Integer>();   ///// !!!!!
         
         int left = 0;
         int right = 0;
@@ -57,9 +57,12 @@ public class MinimumWindowSubstring {
         			left++;
         			cc = s.charAt(left);   ///// 更新cc
         		}
-        		
-        		length = Math.min(length, right - left + 1);
-        		res = s.substring(left, right+1);
+
+				int curLen = right - left + 1;
+				if (curLen < length) {
+					length = curLen;
+					res = s.substring(left, right+1);
+				}
         	}
         	right++;
         }
