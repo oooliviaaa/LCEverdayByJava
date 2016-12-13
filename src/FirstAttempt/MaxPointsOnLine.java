@@ -20,42 +20,36 @@ public class MaxPointsOnLine {
 	
 	public  int maxPoints(Point[] points) {
 		if (points == null || points.length == 0) return 0;
-		int max = 0;
-
-		for (int i = 0; i < points.length; i++) {
-			Point p = points[i];  
-			int px = p.x;
-			int py = p.y;
-			// Map<gradient, how many nodes>
-			Map<Double, Integer> hm = new HashMap<Double, Integer>();
-			hm.put((double)Integer.MAX_VALUE, 1);
-			int dup = 0; // how many exactly same node
-			
-			for (int j = i+1; j < points.length; j++) {
-				Point q = points[j];
-				int qx = q.x;
-				int qy = q.y;
-				if (qx == px && qy == py) {
-					dup++;
-				} else if (qx == px) {
-					hm.put((double)Integer.MAX_VALUE, hm.get(Integer.MAX_VALUE)+1);
-				} else {
-					double key = (double)(qy - py) / (double)(qx - px);
-					if (hm.containsKey(key)) {
-						hm.put(key, hm.get(key)+1); // add point q
-					} else {
-						hm.put(key, 2);  // add point p and q
-					}
-				}
-				
-			}
-			for (int val : hm.values()) {
-				if (val + dup > max) {
-					max = val + dup;
-				}
-			}
-			
-		}
-		return max;
+        int res = 0;
+        for (int i = 0; i < points.length; i++) {
+            Point point = points[i];
+            int x = point.x;
+            int y = point.y;
+            Map<Double, Integer> map = new HashMap<Double, Integer>();
+            int vert = 0;
+            int dup = 1;   ///// 先算上i自己
+            for (int j = 0; j < points.length; j++) {
+                if (i == j) continue;  ///// !!!!!
+                Point p = points[j];
+                int px = p.x;
+                int py = p.y;
+                if (px == x && py == y) dup++;
+                else if (px == x) {
+                    vert++;
+                } else {
+                    double slope = (double)(y - py) / (double)(x - px);
+                    if (map.containsKey(slope)) {
+                        map.put(slope, map.get(slope)+1);
+                    } else {
+                        map.put(slope, 1);
+                    }
+                }
+            }
+            for (int val : map.values()) {
+                res = Math.max(res, val+dup);
+            }
+            res = Math.max(res, vert+dup);
+        }
+        return res;
 	}
 }

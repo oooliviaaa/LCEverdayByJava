@@ -19,7 +19,7 @@ public class MedianofTwoSortedArrays {
 		if(a >= num1.length) return num2[b+k-1];
 		if(b >= num2.length) return num1[a+k-1];
 		
-		if(k == 1) return Math.min(num1[a], num2[b]);
+		if(k == 1) return Math.min(num1[a], num2[b]); ///// !!!!!
 		
 		// get the No.k/2 number in each array
 		int key1 = a + k/2 - 1 < num1.length ? num1[a + k/2 - 1] : Integer.MAX_VALUE; 
