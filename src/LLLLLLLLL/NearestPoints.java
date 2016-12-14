@@ -31,7 +31,7 @@ public class NearestPoints {
     	return pq;
     }
     
-    private Comparator<Point> getComparator(final Point center) {
+    private Comparator<Point> getComparator(final Point center) {   ///// final!!!!!
     	return (new Comparator<Point>() {
 
 			public int compare(Point o1, Point o2) {
@@ -39,7 +39,7 @@ public class NearestPoints {
 				int len2 = getDistance(o2, center);
 				return len1 - len2;
 			}
-		});
+		}); ///// !!!!!
     }
     
     private int getDistance(Point a, Point b) {
