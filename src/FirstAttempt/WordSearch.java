@@ -17,6 +17,10 @@ public class WordSearch {
     }
 	
 	private boolean dfs(char[][] board, String word, int i, int j, int k) {
+		if (k >= word.length()) {  // 此处去掉也没关系
+            return false;
+        }
+		
 		if(i < 0 || j < 0 || i >= board.length || j >= board[0].length){
 	        return false;
 	    }
@@ -25,7 +29,7 @@ public class WordSearch {
 		char w = word.charAt(k);
 		
 		if (c != w) return false;
-		if (c == w && k == word.length()-1) return true;
+		if (c == w && k == word.length()-1) return true;   ///// 重点是这里!!!!!
 		
 		board[i][j] = '.';   /////// mark as visited !!!!!
 		

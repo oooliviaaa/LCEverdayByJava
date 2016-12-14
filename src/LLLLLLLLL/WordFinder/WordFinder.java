@@ -39,7 +39,6 @@ public class WordFinder {
     private void helper(Map<Character, Integer> hm, TrieNode node, String tmp, Set<String> res) {
     	if (node.isLeaf) {
     		res.add(tmp);
-    		return;
     	}
     	if (hm.isEmpty()) {
     		return;
