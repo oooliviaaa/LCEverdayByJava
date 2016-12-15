@@ -36,8 +36,18 @@ public class MultiDimensionArraySum {
 	    }
 	    return res;
 	}
+	
+	public static void main(String[] args) {
+		MultiDimArray m = new MultiDimArray();
+		MultiDimensionArraySum md = new MultiDimensionArraySum();
+		int[] dimensions = {3,3,3};
+		int res = md.arraySum(m, dimensions);
+		System.out.println(res);
+	}
 }
 
-interface MultiDimArray {
-    int get(int[] position);
+class MultiDimArray {
+    int get(int[] position) {
+    	return 1;
+    }
 }
